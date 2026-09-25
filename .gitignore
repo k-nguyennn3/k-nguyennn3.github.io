@@ -1,0 +1,10 @@
+.DS_Store
+*.tmp
+# Raw video stays out of the repo; only compressed clips under ~20 MB belong in videos/
+*.mov
+*.MOV
+
+# Project notes live one level up (Portfolio/), outside the public repo
+CLAUDE.md
+CLAUDE.local.md
+SOURCES.md
