@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pool Accessible Wheelchair Redesign | Kristopher Nguyen</title>
+  <meta name="description" content="Capstone case study: a reproducible PVC aquatic-therapy wheelchair that sinks in 25 seconds, resists tipping, and keeps hardware away from patients. Kit Nguyen owned the brake and wheel subsystems.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-link" href="../index.html#timeline">Timeline</a>
+        <a class="nav-link" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#biomechanics">Biomechanics</a>
+        <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap"><p class="crumb"><a href="../index.html#projects">← All projects</a></p></div>
+
+    <!-- ============ Hero ============ -->
+    <section class="proj-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <ul class="tags"><li class="tag--bio">Medical device</li><li class="tag--bio">Accessibility</li><li>Capstone</li></ul>
+          <h1 id="page-title">Pool Accessible Wheelchair Redesign</h1>
+          <p class="lede">A reproducible aquatic-therapy wheelchair that sinks in 25 seconds, resists tipping, and keeps hardware away from patients, built for less than a commercial chair.</p>
+          <dl class="spec">
+            <div><dt>My role</dt><dd>Document Lead; owner of the brake and wheel subsystem redesign</dd></div>
+            <div><dt>Team</dt><dd>5 mechanical engineering students</dd></div>
+            <div><dt>Client</dt><dd>Wave Therapies, aquatic physical therapy at the Bellevue Aquatic Center</dd></div>
+            <div><dt>Dates</dt><dd>Jan – Jun 2026 · UW Mechanical Engineering Capstone</dd></div>
+            <div><dt>Tools</dt><dd>Onshape, ANSYS Mechanical, Excel, FMEA, mill and lathe, 3D printing</dd></div>
+          </dl>
+        </div>
+        <a class="proj-hero-img zoom" href="../images/pawr/final-build.jpg">
+          <img src="../images/pawr/final-build.jpg" width="1050" height="1400" alt="Finished pool wheelchair: white PVC frame, gray mesh seat and backrest, black mag wheels, in the capstone shop">
+        </a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="key-numbers" aria-label="Key results">
+        <li><strong>25 s</strong>to sink to the pool floor (was ~2 min)</li>
+        <li><strong>1.68 in</strong>max frame deflection at 350 lb (FEA; limit 2 in)</li>
+        <li><strong>87.5%</strong>user comfort rating (target 80%)</li>
+        <li><strong>~$900</strong>in materials vs. $1,200–1,500 commercial</li>
+      </ul>
+    </div>
+
+    <!-- ============ Problem ============ -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="problem-title">The problem</h2>
+        <p>Wave Therapies runs aquatic physical therapy for patients with chronic pain and neuromuscular conditions, who roll into a heated pool on PVC wheelchairs. After production of their preferred stainless-steel chair ended, the PVC chairs they relied on had four problems:</p>
+        <ul>
+          <li><strong>Floating.</strong> The hollow frame took about two minutes to flood and sink, so the chair drifted and patients could slide out during transfers.</li>
+          <li><strong>Tipping.</strong> With water at armrest height, a patient leaning back could tip the chair.</li>
+          <li><strong>Pressure points.</strong> Seat bolts and a front crossbar pressed into patients' legs.</li>
+          <li><strong>Brakes.</strong> Patients used the brake handles as grab bars when standing, bending the single-joint mounts until the brake, and often the whole chair, was out of service.</li>
+        </ul>
+        <p class="callout"><strong>Designing for the patient population:</strong> many of these patients have reduced muscle mass, so there is little soft tissue to cushion hard contact. A bolt head or crossbar that a typical user would barely notice can cause pain or bruising, which made hardware placement a first-order design constraint.</p>
+        <p>The client wanted a chair the aquatic center could build, repair, and eventually open-source to other therapy pools, for less than a commercial pool chair.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ My role ============ -->
+    <section class="section" aria-labelledby="role-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="role-title">My role</h2>
+        <p>As <strong>Document Lead</strong>, I kept the project record for the five-person team: client meeting notes, the budget, and the design reports delivered to the client. I also <strong>owned the brake and wheel subsystem redesign</strong>:</p>
+        <ul>
+          <li>Used an <strong>FMEA</strong> to rank brake failure risks, which steered the design toward a modular brake that is easy to repair and replace.</li>
+          <li>Moved the scissor brake behind the rear wheel, out of the patient's reach but at hip height for the therapist, and designed an adaptable multi-point mount so the existing stainless brake could be reused and moved between chairs.</li>
+          <li>Verified the brake components in <strong>ANSYS</strong> to a <strong>factor of safety of 2.0</strong>.</li>
+          <li>Chose PVC for its chlorine resistance, and designed the rear-wheel connection for tool access so wheels can be pulled for maintenance.</li>
+          <li>Machined and assembled parts by hand for the prototypes.</li>
+        </ul>
+        <p class="callout"><strong>Cost of a failure, before and after:</strong> a bent brake used to mean replacing a ~$2,000 chair. With the adaptable mount, only a ~$100 mount is swapped.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Approach ============ -->
+    <section class="section" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="prose">
+          <h2 id="approach-title">Approach</h2>
+
+          <h3>1. Requirements</h3>
+          <p>We took apart the client's existing chairs, measured the pool ramp, and turned client interviews into testable targets: sink to the pool floor in under 30 seconds, deflect less than 2 in under a 350 lb user, stay under 32 in wide for the ramp, reach 80% user satisfaction for comfort and stability, and cost less than a commercial chair. The design also followed wheelchair and accessibility standards: ANSI/RESNA WC and ISO 7176 for strength, stability, and braking, ADA 2010 §1009 for pool access, and ASTM/AATCC tests for fabric strength and chlorine resistance.</p>
+
+          <h3>2. Concepts</h3>
+          <p>We split the chair into four subsystems (frame, seat mesh, brakes, and wheels), generated options for each, and combined them in a morphological chart. A weighted decision matrix scored the combinations on sinking, comfort, durability, and cost.</p>
+        </div>
+        <figure class="prose">
+          <a class="zoom" href="../images/pawr/morph-chart.png"><img src="../images/pawr/morph-chart.png" width="841" height="542" loading="lazy" alt="Morphological chart combining frame, handle, mesh, brake, and wheel options into four concepts"></a>
+          <figcaption>Morphological chart: each colored row is one full concept built from subsystem options.</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h3>3. Analysis</h3>
+          <p><strong>Buoyancy.</strong> Onshape mass properties showed the flooded frame displaces 1,047 in³, for 37.8 lbf of buoyancy against a 47.4 lb frame. The chair sinks, but a net ~10 lb pull explains the slow descent. Quarter-inch vent holes let water in faster, and steel ballast adds weight.</p>
+          <p><strong>Tipping.</strong> A moment balance about the rear axle, with water at armrest height, found the push force a therapist needs to keep the chair from tipping. The model swept 8 ballast layouts, 4 seating positions, users from 70 to 350 lb, and push angles from 0° to 90°.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/pawr/tipping-fbd.png"><img src="../images/pawr/tipping-fbd.png" width="717" height="797" loading="lazy" alt="Free-body diagram of the wheelchair on a ramp with push, drag, buoyancy, weight, and normal forces"></a>
+            <figcaption>Free-body diagram for the tipping analysis.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/tipping-analysis-plot.png"><img src="../images/pawr/tipping-analysis-plot.png" width="895" height="493" loading="lazy" alt="Plot of required stabilizing force versus pushing angle for four seating positions and two user weights"></a>
+            <figcaption>Required push force vs. push angle (one of eight ballast layouts). Above 60°, a 350 lb rear-seated user needs over 150 lbf.</figcaption>
+          </figure>
+        </div>
+        <div class="prose">
+          <p>Two findings shaped the design. Tipping risk only appears when the user's weight shifts rearward, and it grows sharply above a 60° push angle, so the therapist guidance is to push low, at 0–30°. And ballast barely helps with tipping: going from zero to five ballasts cut the worst-case push force by only 11.35 lbf while raising the dry weight toward 72.6 lb. That freed us to size ballast for sinking speed alone, and pool testing settled on <strong>two 2.5 lb steel ballasts</strong> over the casters.</p>
+
+          <p><strong>Frame FEA.</strong> Removing the front crossbar for comfort let the seat frame cave inward, so the team compared the original frame with five support concepts in ANSYS static structural at 200, 300, and 350 lb. A mesh study refined quadratic tetrahedra from 0.5 in to 0.1 in (81,000 to 897,000 elements). Going from 0.2 in to 0.1 in changed deflection by only 1.4%, so 0.2 in elements balanced accuracy and run time.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/pawr/fea-original-200lb.jpg"><img src="../images/pawr/fea-original-200lb.jpg" width="1400" height="576" loading="lazy" alt="ANSYS total deformation of the original PVC frame under 200 lb"></a>
+            <figcaption>Original frame, 200 lb: 2.10 in max deflection.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/fea-config-e-200lb.jpg"><img src="../images/pawr/fea-config-e-200lb.jpg" width="1400" height="573" loading="lazy" alt="ANSYS total deformation of frame configuration E under 200 lb"></a>
+            <figcaption>Configuration E, 200 lb: 0.96 in, 54% less than the original.</figcaption>
+          </figure>
+        </div>
+        <div class="prose">
+          <p>We chose <strong>configuration E</strong>: a criss-cross support of 1 in pipe joined with sling tees under the seat. Configuration D was slightly stiffer (0.85 in), but E's smaller pipes stay clear of users' thighs as the mesh sags. At 350 lb, E deflects 1.68 in, inside the 2 in limit. Its safety factor against PVC ultimate strength is 1.81 at 200 lb, 1.21 at 300 lb, and <strong>1.04 at 350 lb</strong>. That last figure is for the whole frame, separate from the brake components' 2.0, and the team's FEA review flagged 350 lb as a critical case, recommending 300 lb or less for routine use.</p>
+        </div>
+        <figure class="prose">
+          <a class="zoom" href="../images/pawr/fea-config-e-350lb.jpg"><img src="../images/pawr/fea-config-e-350lb.jpg" width="1400" height="573" loading="lazy" alt="ANSYS total deformation of frame configuration E under 350 lb, maximum 1.68 inches"></a>
+          <figcaption>Configuration E at 350 lb: 1.68 in max deflection (whole-frame safety factor 1.04).</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h3>4. Brake and wheel subsystems (my focus)</h3>
+          <p>The old toggle brakes sat within the patient's reach and hung from a single joint, so every transfer loaded them as a handle. The redesign keeps a scissor brake, whose over-center linkage tightens as the tire pushes back, but mounts it vertically behind the rear wheel on a multi-point bracket. The 3D-printed mount and connector are sealed with Plasti Dip against the warm, chlorinated air. Because the mount adapts to different chairs and brakes, a damaged brake is a mount swap, not a lost chair.</p>
+          <p>On the wheels, 24 in mag wheels with solid airless tires remove spoke loosening and puncture risk. The rear axle tube is split into two 8.5 in pipes joined by a tee, which leaves room for a wrench on the ½ in axle bolt so a wheel can come off for maintenance.</p>
+        </div>
+        <div class="fig-row fig-row--3">
+          <figure>
+            <a class="zoom" href="../images/pawr/cad-brake.jpg"><img src="../images/pawr/cad-brake.jpg" width="1055" height="752" loading="lazy" alt="CAD model of the rear-mounted scissor brake and its bracket against the wheel"></a>
+            <figcaption>Brake CAD: rear-mounted scissor brake on a multi-point bracket.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/brake-installed.jpg"><img src="../images/pawr/brake-installed.jpg" width="1048" height="1386" loading="lazy" alt="Installed vertical scissor brake on the final prototype, behind the rear wheel"></a>
+            <figcaption>Installed on the final prototype.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/cad-rear-wheel.jpg"><img src="../images/pawr/cad-rear-wheel.jpg" width="1152" height="786" loading="lazy" alt="CAD of the rear wheel system with the split axle tube and center tee"></a>
+            <figcaption>Rear wheel system: split axle tube for tool access.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>5. Build and iterate</h3>
+          <p>We built four prototypes. V0 was oversized and had no brake. V1's frame caved in above about 120 lb and its first brake design failed. V2's brake worked, but the single-layer mesh stretched and tore at the rivet nuts. The final V3 added the criss-cross support, a two-layer mesh laid at 90° to form a grid, the vertical rear brake, and fully solvent-welded Schedule 40 PVC.</p>
+          <p>Build details that mattered: PVC fittings bored 0.015–0.020 in oversize for a transition fit, alignment marks drawn on every joint during dry fit because PVC cement sets in seconds, and a backrest curved by filling the pipe with 300–350 °F sand.</p>
+        </div>
+        <div class="fig-row fig-row--3 fig-row--portrait">
+          <figure>
+            <a class="zoom" href="../images/pawr/prototype-v2.jpg"><img src="../images/pawr/prototype-v2.jpg" width="1050" height="1400" loading="lazy" alt="V2 prototype with a single-layer beige mesh seat in the shop"></a>
+            <figcaption>V2: the single-layer mesh tore at the rivet nuts.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/kit-brake-assembly.jpg"><img src="../images/pawr/kit-brake-assembly.jpg" width="1050" height="1400" loading="lazy" alt="Kit Nguyen fitting the brake assembly to the wheelchair frame at a workbench"></a>
+            <figcaption>Fitting the brake assembly.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/pawr/pool-ramp-test.jpg"><img src="../images/pawr/pool-ramp-test.jpg" width="900" height="1600" loading="lazy" alt="Teammates testing the wheelchair on the pool ramp as it enters the water"></a>
+            <figcaption>V1 pool ramp test at the Bellevue Aquatic Center.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Results ============ -->
+    <section class="section" aria-labelledby="results-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="results-title">Results</h2>
+        <p>The final prototype met every validation target, confirmed with the client at the Bellevue Aquatic Center.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>Time to sink to the pool floor</td><td class="num">&lt; 30 s</td><td class="num"><span class="pass">25 s</span> (was ~2 min)</td></tr>
+              <tr><td>Frame deflection at 350 lb (FEA)</td><td class="num">&lt; 2 in</td><td class="num"><span class="pass">1.68 in</span></td></tr>
+              <tr><td>User comfort (survey)</td><td class="num">≥ 80%</td><td class="num"><span class="pass">87.5%</span></td></tr>
+              <tr><td>Tip resistance (users actively trying to tip it)</td><td class="num">No tip</td><td class="num"><span class="pass">100% held</span></td></tr>
+              <tr><td>Overall width (pool ramp)</td><td class="num">&lt; 32 in</td><td class="num"><span class="pass">29.8 in</span></td></tr>
+              <tr><td>Cost</td><td class="num">&lt; $2,000</td><td class="num"><span class="pass">~$900</span> materials, ~$1,100 built</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Factor of safety (FEA)</th><th scope="col">200 lb</th><th scope="col">300 lb</th><th scope="col">350 lb</th></tr></thead>
+            <tbody>
+              <tr><td>Brake components (my subsystem)</td><td class="num" colspan="3">2.0</td></tr>
+              <tr><td>Whole PVC frame (configuration E)</td><td class="num">1.81</td><td class="num">1.21</td><td class="num">1.04</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Next steps we recommended:</strong> a stainless-steel ballast or one built into the caster connector, a carbon-fiber brake mount, rubber-cushioned handles, and a footrest.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Gallery ============ -->
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="gallery">
+          <a class="zoom" href="../images/pawr/team-expo.jpg"><img src="../images/pawr/team-expo.jpg" width="1400" height="1050" loading="lazy" alt="The capstone team with Wave Therapies staff and the finished wheelchair at the UW capstone expo"></a>
+          <a class="zoom" href="../images/pawr/poster.jpg"><img src="../images/pawr/poster.jpg" width="1800" height="1350" loading="lazy" alt="Capstone expo poster: Pool Accessible Wheelchair Redesign"></a>
+          <a class="zoom" href="../images/pawr/cad-full.jpg"><img src="../images/pawr/cad-full.jpg" width="717" height="737" loading="lazy" alt="Full CAD model of the final wheelchair design"></a>
+          <a class="zoom" href="../images/pawr/cad-mesh.jpg"><img src="../images/pawr/cad-mesh.jpg" width="1090" height="762" loading="lazy" alt="CAD of the mesh seat and backrest bolted to the sides of the frame"></a>
+          <a class="zoom" href="../images/pawr/cad-frame-changes.jpg"><img src="../images/pawr/cad-frame-changes.jpg" width="842" height="756" loading="lazy" alt="CAD highlighting the frame changes: armrests and criss-cross seat support"></a>
+          <a class="zoom" href="../images/pawr/cad-exploded.jpg"><img src="../images/pawr/cad-exploded.jpg" width="765" height="726" loading="lazy" alt="Exploded CAD view of the frame for assembly"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Skills used ============ -->
+    <section class="section" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills used</h2>
+        <ul class="skills-used">
+          <li>FMEA</li>
+          <li>ANSYS static structural</li>
+          <li>Mesh-convergence studies</li>
+          <li>Buoyancy and moment hand calculations</li>
+          <li>Onshape CAD and drawings</li>
+          <li>Design for repair and modularity</li>
+          <li>Manual machining</li>
+          <li>PVC solvent welding</li>
+          <li>Design for patient comfort</li>
+          <li>Client communication</li>
+          <li>Technical documentation</li>
+        </ul>
+
+        <nav class="pager" aria-label="Projects">
+          <a href="../index.html#projects">← All projects</a>
+          <span class="pending">Next: Human Powered Bike Dynamo (in progress)</span>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Kristopher Nguyen · Mechanical Engineer, EIT</p>
+      <nav aria-label="Contact">
+        <a href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
+        <a data-email-user="kit.n567" data-email-domain="gmail.com" hidden>Email</a>
+        <a href="../files/Kristopher-Nguyen-Resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
