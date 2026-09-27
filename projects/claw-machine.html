@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reimagined Candy Bowl: Mini Claw Machine | Kristopher Nguyen</title>
+  <meta name="description" content="Project case study: a desk-sized claw machine with a 2-axis gantry and a syringe-hydraulic claw, built for $127 in parts. Kit Nguyen designed and built the gantry.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-link" href="../index.html#timeline">Timeline</a>
+        <a class="nav-link" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#biomechanics">Biomechanics</a>
+        <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap"><p class="crumb"><a href="../index.html#projects">← All projects</a></p></div>
+
+    <!-- ============ Hero ============ -->
+    <section class="proj-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <ul class="tags"><li>Mechanism design</li><li>Hydraulics</li><li>Low-cost build</li><li>ME 493</li></ul>
+          <h1 id="page-title">Reimagined Candy Bowl: Mini Claw Machine</h1>
+          <p class="lede">A desk-sized claw machine for a UW graduate academic counselor: a 2-axis gantry positions a claw driven by water-filled syringes, built for $127 in parts.</p>
+          <dl class="spec">
+            <div><dt>My role</dt><dd>Designed and built the 2-axis gantry that positions the claw; team communicator</dd></div>
+            <div><dt>Team</dt><dd>3 mechanical engineering students</dd></div>
+            <div><dt>Client</dt><dd>Graduate academic counselor, UW Mechanical Engineering</dd></div>
+            <div><dt>Dates</dt><dd>Sep – Dec 2025 · UW ME 493 design studio</dd></div>
+            <div><dt>Tools</dt><dd>SolidWorks, 3D printing, laser cutting, aluminum extrusion, syringe hydraulics</dd></div>
+          </dl>
+        </div>
+        <a class="proj-hero-img zoom" href="../images/claw-machine/final-front.jpg">
+          <img src="../images/claw-machine/final-front.jpg" width="1235" height="1400" alt="The finished claw machine: acrylic walls on a black aluminum frame, a white 3D-printed claw, and wrapped candy on the floor">
+        </a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="key-numbers" aria-label="Key results">
+        <li><strong>$127</strong>in parts, under the $150 budget</li>
+        <li><strong>~3 lb</strong>light enough to carry to career fairs (limit 5 lb)</li>
+        <li><strong>11 / 15</strong>testers got candy by their third try</li>
+        <li><strong>~2 min</strong>average play time (target 2–3 min)</li>
+      </ul>
+    </div>
+
+    <!-- ============ Problem ============ -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="problem-title">The problem</h2>
+        <p>A graduate academic counselor in UW Mechanical Engineering wanted more students to stop by her office and her career-fair table. A candy bowl sits on most counselors' desks and goes unnoticed. The brief was to reimagine it as something students would want to play with.</p>
+        <p>Her requirements: fit on a desk in roughly a 12 in cube, weigh under 5 lb so she could carry it to recruiting fairs, reflect her interests (cats, nature, and music), be reliable and easy to refill, and cost under $150. We added targets for the experience itself: a 2–3 minute interaction, and a difficulty tuned so about 80% of users win on their third try.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ My role ============ -->
+    <section class="section" aria-labelledby="role-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="role-title">My role</h2>
+        <p>I owned the <strong>claw positioning system</strong>, the 2-axis gantry that carries the claw over the candy:</p>
+        <ul>
+          <li>Came up with the sliding-rail concept and proved it on the team's cardboard 0th prototype.</li>
+          <li>Modeled printable rails, T-nuts, and the gantry assembly in CAD. When the printed parts fell short, the team moved the gantry to MakerBeam (below).</li>
+          <li>Laser-cut and assembled the enclosure with the team.</li>
+        </ul>
+        <p>I was also the team's <strong>communicator</strong>, and I drafted the portability and size requirements.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Approach ============ -->
+    <section class="section" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="prose">
+          <h2 id="approach-title">Approach</h2>
+
+          <h3>1. Concepts</h3>
+          <p>We brainstormed around the subfunctions of a candy bowl (hold, separate, and dispense one treat; take user input; stay stable) and brought three concepts to a preliminary design review: a rotating dispenser, a claw machine, and a multi-candy push dispenser. We screened them on feasibility, technical readiness, and how interactive and attractive they were. The claw machine won on interactivity and on fitting the client's cat theme, and a quick cardboard prototype showed a syringe-driven claw really could grab candy.</p>
+
+          <h3>2. The gantry (my subsystem)</h3>
+          <p>The first gantry slid the claw on T-nuts inside slotted aluminum rail, which worked well on the cardboard prototype. To save weight, I redesigned the 80/20-style rail and T-nuts for 3D printing, but the printed T-nuts came out too small and brittle to hold. The team moved the frame and gantry to <strong>MakerBeam</strong>, a smaller aluminum extrusion. It was lighter, cheaper, and took less space, and its slots capture hex-head bolts so they can't spin during assembly. The same slots hold the acrylic walls, so the frame and enclosure became one structure.</p>
+        </div>
+        <div class="fig-row fig-row--3 fig-row--portrait">
+          <figure>
+            <a class="zoom" href="../images/claw-machine/prototype-0-rails.jpg"><img src="../images/claw-machine/prototype-0-rails.jpg" width="542" height="723" loading="lazy" alt="Cardboard 0th prototype with two aluminum rails across the top carrying the claw"></a>
+            <figcaption>0th prototype: my sliding-rail concept on cardboard.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/claw-machine/beta-frame.jpg"><img src="../images/claw-machine/beta-frame.jpg" width="1400" height="1050" loading="lazy" alt="Beta prototype: black MakerBeam frame with the gantry and claw, before the acrylic walls"></a>
+            <figcaption>Beta: MakerBeam frame and gantry.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/claw-machine/gantry-closeup.jpg"><img src="../images/claw-machine/gantry-closeup.jpg" width="1050" height="1400" loading="lazy" alt="Close-up of the gantry rail and carriage on the finished machine"></a>
+            <figcaption>Final gantry rail and carriage.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>3. Claw and lift</h3>
+          <p>A 3D-printed claw hangs from a scissor lift, and pairs of syringes connected by tubing drive both motions. With air in the lines, the lift didn't have enough force to raise the arm, so we switched to water for true hydraulics. The scissor pivots use a double-nut (jam nut) arrangement so they turn smoothly without the fasteners backing out.</p>
+        </div>
+        <div class="fig-row fig-row--3 fig-row--portrait">
+          <figure>
+            <a class="zoom" href="../images/claw-machine/scissor-lift.jpg"><img src="../images/claw-machine/scissor-lift.jpg" width="1050" height="1400" loading="lazy" alt="Black scissor-lift linkage driven by a syringe"></a>
+            <figcaption>Scissor lift driven by a syringe.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/claw-machine/claw-syringe.jpg"><img src="../images/claw-machine/claw-syringe.jpg" width="1050" height="1400" loading="lazy" alt="White 3D-printed claw mounted under a syringe that opens and closes it"></a>
+            <figcaption>Claw and its actuating syringe.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/claw-machine/claw-grip.jpg"><img src="../images/claw-machine/claw-grip.jpg" width="1050" height="1400" loading="lazy" alt="Claw lowered over wrapped candy inside the machine"></a>
+            <figcaption>Lining up on a candy.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>4. Enclosure and theme</h3>
+          <p>Laser-cut acrylic walls keep the mechanism visible, with engraved cat, mountain, and music-note panels for the client's themes and a plywood forest backdrop. A magnet-latched side door makes refilling easy, and winners collect their candy from a small chute in one corner.</p>
+        </div>
+        <figure class="clip prose">
+          <video controls muted loop playsinline preload="none" poster="../videos/claw-machine-grab.jpg" width="640" height="360">
+            <source src="../videos/claw-machine-grab.mp4" type="video/mp4">
+          </video>
+          <figcaption>The claw lowering onto a candy and closing (17 s, no audio).</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h3>5. User testing</h3>
+          <p>We ran live tests with 15 users. Eleven retrieved a candy by their third attempt, with an average interaction time of about 2 minutes. Ten of the 15 described it as fun, and more than 20 passing students commented on the machine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Results ============ -->
+    <section class="section" aria-labelledby="results-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="results-title">Results</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>Cost</td><td class="num">&lt; $150</td><td class="num"><span class="pass">$126.70</span></td></tr>
+              <tr><td>Weight (no candy)</td><td class="num">&lt; 5 lb</td><td class="num"><span class="pass">~3 lb</span></td></tr>
+              <tr><td>Footprint</td><td class="num">~12 × 12 × 12 in</td><td class="num"><span class="partial">12 × 12.5 × 12.8 in</span></td></tr>
+              <tr><td>Play time</td><td class="num">2–3 min</td><td class="num"><span class="pass">~2 min</span> average</td></tr>
+              <tr><td>Win by the third try</td><td class="num">~80% of users</td><td class="num"><span class="short">73%</span> (11 of 15)</td></tr>
+              <tr><td>Draws attention</td><td>50% of students comment</td><td><span class="pass">Met</span>: 10 of 15 testers called it fun; 20+ passersby commented</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Limitations and next steps:</strong> screw heads on the frame blocked part of the gantry's X travel, the claw needed very precise positioning, and candy occasionally stuck in the claw on release. Testers also found it awkward to work two syringes at once. The next version would use a slightly larger box for more vertical travel, claw wires cut to identical lengths, and a mount that turns the syringes into a two-handed controller.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Gallery ============ -->
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="gallery">
+          <a class="zoom" href="../images/claw-machine/final-angle.jpg"><img src="../images/claw-machine/final-angle.jpg" width="1050" height="1400" loading="lazy" alt="The finished machine from an angle, showing the gantry, claw, and forest backdrop"></a>
+          <a class="zoom" href="../images/claw-machine/engraved-panels.jpg"><img src="../images/claw-machine/engraved-panels.jpg" width="1400" height="1050" loading="lazy" alt="Engraved acrylic panels with cat, mountain, and music-note icons"></a>
+          <a class="zoom" href="../images/claw-machine/claw-grip-2.jpg"><img src="../images/claw-machine/claw-grip-2.jpg" width="1050" height="1400" loading="lazy" alt="The claw holding a candy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Full report ============ -->
+    <section class="section" id="report" aria-labelledby="report-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="report-title">Full report</h2>
+        <ul class="report-list">
+          <li>
+            <div>
+              <h3>Executive summary</h3>
+              <p class="report-meta">PDF · 1 page · 0.2 MB</p>
+              <p>By Hoang (Long) Dinh, Nur Sofi Musfirah Che Sopa, and Kit Nguyen.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/claw-machine-executive-summary.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/claw-machine-executive-summary.pdf" download>Download</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Final presentation</h3>
+              <p class="report-meta">PDF · 10 slides · 0.7 MB</p>
+              <p>By Hoang (Long) Dinh, Nur Sofi Musfirah Che Sopa, and Kit Nguyen. My sections of the project were the gantry and the portability and size requirements.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/claw-machine-final-presentation.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/claw-machine-final-presentation.pdf" download>Download</a>
+            </div>
+          </li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- ============ Skills used ============ -->
+    <section class="section" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills used</h2>
+        <ul class="skills-used">
+          <li>Mechanism design</li>
+          <li>SolidWorks CAD</li>
+          <li>Design for 3D printing</li>
+          <li>Laser cutting</li>
+          <li>Aluminum extrusion framing</li>
+          <li>Syringe hydraulics</li>
+          <li>Rapid prototyping</li>
+          <li>User testing</li>
+          <li>Low-cost design</li>
+          <li>Client requirements</li>
+        </ul>
+
+        <nav class="pager" aria-label="Projects">
+          <a href="bike-dynamo.html">← Human Powered Bike Dynamo</a>
+          <span class="pending">Next: Husky Robotics (in progress)</span>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Kristopher Nguyen · Mechanical Engineer, EIT</p>
+      <nav aria-label="Contact">
+        <a href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
+        <a data-email-user="kit.n567" data-email-domain="gmail.com" hidden>Email</a>
+        <a href="../files/Kristopher-Nguyen-Resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

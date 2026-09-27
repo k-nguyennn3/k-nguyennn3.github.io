@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Powered Bike Dynamo | Kristopher Nguyen</title>
+  <meta name="description" content="Project case study: a bike-mounted friction-roller generator that charges a removable battery pack, with an ESP32, OLED display, and Wi-Fi dashboard. Kit Nguyen led the 4-person team.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-link" href="../index.html#timeline">Timeline</a>
+        <a class="nav-link" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#biomechanics">Biomechanics</a>
+        <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap"><p class="crumb"><a href="../index.html#projects">← All projects</a></p></div>
+
+    <!-- ============ Hero ============ -->
+    <section class="proj-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <ul class="tags"><li>Electromechanical</li><li>ESP32</li><li>ANSYS</li><li>ME 480</li></ul>
+          <h1 id="page-title">Human Powered Bike Dynamo</h1>
+          <p class="lede">A bike-mounted generator that charges a removable battery pack while you ride, with live voltage on an OLED screen and a Wi-Fi dashboard.</p>
+          <dl class="spec">
+            <div><dt>My role</dt><dd>Project lead, from trade studies through the final build and test</dd></div>
+            <div><dt>Team</dt><dd>4 students</dd></div>
+            <div><dt>Dates</dt><dd>Sep – Dec 2025 · UW ME 480</dd></div>
+            <div><dt>Tools</dt><dd>Fusion 360, ANSYS Mechanical, ESP32 (Arduino C++), 3D printing, soldering</dd></div>
+          </dl>
+        </div>
+        <a class="proj-hero-img zoom" href="../images/bike-dynamo/product-hero.jpg">
+          <img src="../images/bike-dynamo/product-hero.jpg" width="1600" height="1200" alt="Gray 3D-printed dynamo housing with a rubber friction roller and a small OLED screen showing the output voltage">
+        </a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="key-numbers" aria-label="Key results">
+        <li><strong>5.65 W</strong>at 10.4 mph, 2.3× the 2.5 W goal</li>
+        <li><strong>7.55 W</strong>peak measured, at 14.7 mph</li>
+        <li><strong>0.98 kg</strong>total mass (limit 1 kg)</li>
+        <li><strong>17.9%</strong>of a 10,000 mAh pack per 2 h ride at 10 mph</li>
+      </ul>
+    </div>
+
+    <!-- ============ Problem ============ -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="problem-title">The problem</h2>
+        <p>Cyclists put out a lot of mechanical energy, and almost none of it is captured, especially when coasting downhill. Our goal was to turn part of that energy into useful electrical energy for charging a phone, without the rider noticing the device.</p>
+        <p>The ideal requirements were ambitious, so we cut them down to what we could build and test in ten weeks: generate a useful 5 V at 0.5 A (2.5 W) at 10 mph, weigh no more than 1 kg (about a full water bottle), add negligible drag, survive rain and rough terrain, mount on any standard adult bike without modification, and cost at most $50 to build.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ My role ============ -->
+    <section class="section" aria-labelledby="role-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="role-title">My role</h2>
+        <p>I was the <strong>project lead</strong> for our four-person team, taking the project from trade studies and requirements through the final build and testing. I also:</p>
+        <ul>
+          <li>Ran the <strong>ANSYS</strong> structural analysis of the housing and roller mount.</li>
+          <li>Sized the <strong>roller-to-tire drive ratio</strong> to get as much energy out of the wheel as possible.</li>
+          <li>Handled the <strong>electromechanical integration</strong>: motor, power conditioning, voltage sensing, ESP32, display, and battery, all packed into one printed housing.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- ============ Approach ============ -->
+    <section class="section" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="prose">
+          <h2 id="approach-title">Approach</h2>
+
+          <h3>1. Requirements</h3>
+          <p>We wrote 17 "as needed" requirements, then revised each one into an "as offered" version that could actually be verified in ten weeks. A 5,000-mile durability goal became terrain and curb tests, two USB-C ports became one, and regenerative braking was dropped in favor of a removable battery that doubles as a normal power bank.</p>
+
+          <h3>2. Architecture</h3>
+          <p>A rubber friction roller rides on the rear tire and spins a small DC motor used as a generator. A Schottky blocking diode and a buck converter condition the motor's variable output before it reaches the battery pack. A voltage divider feeds the ESP32's analog input, and the ESP32 drives the OLED display and serves a dashboard over Wi-Fi.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/system-diagram.png"><img src="../images/bike-dynamo/system-diagram.png" width="866" height="666" loading="lazy" alt="System diagram: friction roller on the bike wheel drives the generator; power flows to the battery and user, sensor data flows to the ESP32"></a>
+            <figcaption>System diagram: power (red) and sensor data (blue).</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/circuit-diagram.png"><img src="../images/bike-dynamo/circuit-diagram.png" width="738" height="418" loading="lazy" alt="Circuit diagram: motor, diode, voltage sensor, ESP32, display, and battery"></a>
+            <figcaption>Circuit: motor → diode → battery, with voltage sensing into the ESP32 and an I²C display.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>3. Mechanical design and analysis</h3>
+          <p>The housing is 3D-printed PLA with a removable insert that holds the electronics. The insert and the battery both hold by friction fit, so the battery slides out for normal use and the electronics come out for repair without tools. A rubber gasket seals the insert, sealant closes every other opening, and rubber pads at the mounts absorb vibration. It bolts to the water-bottle bosses, with optional zip-tie mounts for other frames. Every part was dimensioned and toleranced for an FDM printer.</p>
+          <p>For the FEA, the worst-case roller drag torque was only 0.3 N·m, so I applied <strong>1 N·m of torque and 30 N of load</strong>, about three times the real values, to leave margin for edge cases. Peak stress in the PLA was about <strong>1 MPa against a 30–60 MPa yield</strong>, and the steel motor shaft reached 8.6 MPa.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/fea-deformation.jpg"><img src="../images/bike-dynamo/fea-deformation.jpg" width="1600" height="628" loading="lazy" alt="ANSYS total deformation of the dynamo housing and roller under load"></a>
+            <figcaption>ANSYS total deformation of the housing and roller.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/insert-electronics.jpg"><img src="../images/bike-dynamo/insert-electronics.jpg" width="1600" height="1200" loading="lazy" alt="Removable insert opened to show the wiring, diode, and ESP32 beside the motor"></a>
+            <figcaption>Removable insert with the electronics, beside the motor.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>4. Firmware and dashboard</h3>
+          <p>The ESP32 reads the generator voltage, animates the display while charging, and serves a small web dashboard with the live reading and settings. Below 0.2 V it counts down an adjustable timeout and goes to sleep, then wakes on its own when the rider starts pedaling. It also estimates the charge gained by subtracting its own ~1.65 W draw from the 0.5 A charging power and dividing by the pack's 37 Wh capacity, which works out to 17.9% after two hours at 10 mph.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/display-closeup.jpg"><img src="../images/bike-dynamo/display-closeup.jpg" width="1200" height="1600" loading="lazy" alt="Close-up of the OLED display on the housing showing the measured voltage"></a>
+            <figcaption>OLED display with live voltage.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/bike-dynamo/web-dashboard.png"><img src="../images/bike-dynamo/web-dashboard.png" width="1076" height="854" loading="lazy" alt="Bike Charger Dashboard web page with voltage, signal, sleep timeout setting, and a debug panel"></a>
+            <figcaption>Wi-Fi dashboard with the adjustable sleep timeout.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose">
+          <h3>5. Testing</h3>
+          <p>We measured output on flat ground across ten rides at different speeds, logging speed from a phone fitness app. Power scaled linearly with speed, as the model predicted, and passed the 2.5 W goal from about 5 mph up.</p>
+        </div>
+
+        <figure class="chart prose" aria-labelledby="bike-chart-title">
+          <p class="chart-title" id="bike-chart-title">Power output vs. bike speed</p>
+          <p class="chart-sub" id="bike-chart-sub">10 measured rides at 0.5 A charging current, with the model's prediction</p>
+          <ul class="chart-legend">
+            <li><span class="key-dot"></span>Measured</li>
+            <li><span class="key-line"></span>Predicted: 0.5 A × (2.22 V per m/s × speed)</li>
+          </ul>
+          <svg viewBox="0 0 640 360" role="img" aria-labelledby="bike-chart-title bike-chart-sub">
+            <line class="grid" x1="56" x2="620" y1="312.0" y2="312.0"/><text class="axis-text" x="48" y="316.0" text-anchor="end">0</text>
+            <line class="grid" x1="56" x2="620" y1="240.0" y2="240.0"/><text class="axis-text" x="48" y="244.0" text-anchor="end">2</text>
+            <line class="grid" x1="56" x2="620" y1="168.0" y2="168.0"/><text class="axis-text" x="48" y="172.0" text-anchor="end">4</text>
+            <line class="grid" x1="56" x2="620" y1="96.0" y2="96.0"/><text class="axis-text" x="48" y="100.0" text-anchor="end">6</text>
+            <line class="grid" x1="56" x2="620" y1="24.0" y2="24.0"/><text class="axis-text" x="48" y="28.0" text-anchor="end">8</text>
+            <text class="axis-text" x="56.0" y="330" text-anchor="middle">0</text>
+            <text class="axis-text" x="197.0" y="330" text-anchor="middle">4</text>
+            <text class="axis-text" x="338.0" y="330" text-anchor="middle">8</text>
+            <text class="axis-text" x="479.0" y="330" text-anchor="middle">12</text>
+            <text class="axis-text" x="620.0" y="330" text-anchor="middle">16</text>
+            <text class="axis-title" x="338" y="352" text-anchor="middle">Bike speed (mph)</text>
+            <text class="axis-title" x="14" y="168" text-anchor="middle" transform="rotate(-90 14 168)">Power (W)</text>
+            <line class="ref-line" x1="56" x2="620" y1="222.0" y2="222.0"/><text class="ref-text" x="616" y="237.0" text-anchor="end">Goal: 2.5 W (5 V × 0.5 A)</text>
+            <line class="model" x1="56.0" y1="312.0" x2="620.0" y2="26.2"/><text class="ref-text" x="359.1" y="146.4" text-anchor="end">Predicted</text>
+            <g class="pt" tabindex="0" data-tip="2.19 mph · 2.02 V · 1.01 W"><circle class="hit" cx="133.2" cy="275.6" r="12"/><circle class="dot" cx="133.2" cy="275.6" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="2.46 mph · 2.32 V · 1.16 W"><circle class="hit" cx="142.7" cy="270.2" r="12"/><circle class="dot" cx="142.7" cy="270.2" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="3.81 mph · 4.12 V · 2.06 W"><circle class="hit" cx="190.3" cy="237.8" r="12"/><circle class="dot" cx="190.3" cy="237.8" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="4.52 mph · 4.36 V · 2.18 W"><circle class="hit" cx="215.3" cy="233.5" r="12"/><circle class="dot" cx="215.3" cy="233.5" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="5.32 mph · 5.21 V · 2.61 W"><circle class="hit" cx="243.5" cy="218.2" r="12"/><circle class="dot" cx="243.5" cy="218.2" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="7.82 mph · 7.9 V · 3.95 W"><circle class="hit" cx="331.7" cy="169.8" r="12"/><circle class="dot" cx="331.7" cy="169.8" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="10.4 mph · 11.3 V · 5.65 W"><circle class="hit" cx="422.6" cy="108.6" r="12"/><circle class="dot" cx="422.6" cy="108.6" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="12.4 mph · 12.7 V · 6.35 W"><circle class="hit" cx="493.1" cy="83.4" r="12"/><circle class="dot" cx="493.1" cy="83.4" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="14.7 mph · 15.1 V · 7.55 W"><circle class="hit" cx="574.2" cy="40.2" r="12"/><circle class="dot" cx="574.2" cy="40.2" r="5"/></g>
+            <g class="pt" tabindex="0" data-tip="14.9 mph · 14.5 V · 7.25 W"><circle class="hit" cx="581.2" cy="51.0" r="12"/><circle class="dot" cx="581.2" cy="51.0" r="5"/></g>
+          </svg>
+        </figure>
+        <details class="data-table prose">
+          <summary>Show data table</summary>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Speed (mph)</th><th scope="col">Voltage (V)</th><th scope="col">Power at 0.5 A (W)</th></tr></thead>
+              <tbody>
+                <tr><td class="num">2.19</td><td class="num">2.02</td><td class="num">1.01</td></tr>
+                <tr><td class="num">2.46</td><td class="num">2.32</td><td class="num">1.16</td></tr>
+                <tr><td class="num">3.81</td><td class="num">4.12</td><td class="num">2.06</td></tr>
+                <tr><td class="num">4.52</td><td class="num">4.36</td><td class="num">2.18</td></tr>
+                <tr><td class="num">5.32</td><td class="num">5.21</td><td class="num">2.61</td></tr>
+                <tr><td class="num">7.82</td><td class="num">7.9</td><td class="num">3.95</td></tr>
+                <tr><td class="num">10.4</td><td class="num">11.3</td><td class="num">5.65</td></tr>
+                <tr><td class="num">12.4</td><td class="num">12.7</td><td class="num">6.35</td></tr>
+                <tr><td class="num">14.7</td><td class="num">15.1</td><td class="num">7.55</td></tr>
+                <tr><td class="num">14.9</td><td class="num">14.5</td><td class="num">7.25</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="prose">
+          <p>For durability, we rode the device on a mountain bike for about ten minutes each on pavement, dirt, and gravel, then rode up and down a curb ten times. The insert never loosened and the roller held the tire, slipping only rarely on dusty gravel. The one weakness: on the curb drops the housing shifted along its mounting slots, which tighter mounting screws would fix. A controlled water-pour test confirmed the seals kept rain out.</p>
+        </div>
+        <figure class="clip prose">
+          <video controls muted loop playsinline preload="none" poster="../videos/bike-dynamo-bench.jpg" width="640" height="360">
+            <source src="../videos/bike-dynamo-bench.mp4" type="video/mp4">
+          </video>
+          <figcaption>Bench test on a stand: the roller spins the generator and the display reports voltage (21 s, no audio).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ Results ============ -->
+    <section class="section" aria-labelledby="results-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="results-title">Results</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
+            <tbody>
+              <tr><td>Useful power at riding speed</td><td class="num">2.5 W at 10 mph</td><td class="num"><span class="pass">5.65 W</span> at 10.4 mph</td></tr>
+              <tr><td>Mass</td><td class="num">≤ 1 kg</td><td class="num"><span class="pass">0.982 kg</span></td></tr>
+              <tr><td>Drag on the wheel</td><td>Wheel still spins freely</td><td><span class="pass">Met</span>: 0.3 N·m worst-case roller torque</td></tr>
+              <tr><td>Weather</td><td>Sealed against rain</td><td><span class="pass">Met</span>: gasket and sealant passed a water-pour test</td></tr>
+              <tr><td>Rough terrain</td><td>Pavement, dirt, gravel, curb with no damage</td><td><span class="partial">Partly met</span>: no damage, but the housing shifted in its slots on curb drops</td></tr>
+              <tr><td>Universal mount</td><td>Standard adult bikes (not full suspension)</td><td><span class="pass">Met</span>: mounted on an XXL road bike and an XL mountain bike</td></tr>
+              <tr><td>Battery feedback</td><td>Show the battery level</td><td><span class="partial">Partly met</span>: shows charge gained instead, since the pack's internal electronics hide its true level</td></tr>
+              <tr><td>Cost to build</td><td class="num">≤ $50</td><td class="num"><span class="pass">~$50</span> in materials</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The report also includes a business case in Amazon's six-page format: a $50 build cost and an $80 price, a 100-week production and cash-flow model, and sustainability, service, and delivery plans.</p>
+        <p><strong>What we'd change next:</strong> add a heat sink for the buck converter, which ran warm on long rides; use the ESP32's deep-sleep mode to cut idle draw; switch to a grippier, longer-lasting roller material; and simplify the dashboard around the metrics riders actually want, like miles ridden.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Gallery ============ -->
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="gallery">
+          <a class="zoom" href="../images/bike-dynamo/mounted-road-bike.jpg"><img src="../images/bike-dynamo/mounted-road-bike.jpg" width="1400" height="1050" loading="lazy" alt="The dynamo mounted on a road bike's frame beside the rear wheel"></a>
+          <a class="zoom" href="../images/bike-dynamo/mounted-closeup.jpg"><img src="../images/bike-dynamo/mounted-closeup.jpg" width="1400" height="1050" loading="lazy" alt="Close-up of the mounted dynamo with the roller against the rear tire"></a>
+          <a class="zoom" href="../images/bike-dynamo/render.jpg"><img src="../images/bike-dynamo/render.jpg" width="1400" height="1050" loading="lazy" alt="Render of the dynamo housing and roller"></a>
+          <a class="zoom" href="../images/bike-dynamo/weigh-in.jpg"><img src="../images/bike-dynamo/weigh-in.jpg" width="1200" height="1600" loading="lazy" alt="The complete device on a kitchen scale"></a>
+          <a class="zoom" href="../images/bike-dynamo/gdt-drawing.png"><img src="../images/bike-dynamo/gdt-drawing.png" width="1132" height="1600" loading="lazy" alt="Dimensioned GD&amp;T drawing of a printed dynamo part"></a>
+          <a class="zoom" href="../images/bike-dynamo/display-closeup.jpg"><img src="../images/bike-dynamo/display-closeup.jpg" width="1200" height="1600" loading="lazy" alt="OLED display close-up"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Full report ============ -->
+    <section class="section" id="report" aria-labelledby="report-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="report-title">Full report</h2>
+        <ul class="report-list">
+          <li>
+            <div>
+              <h3>Human Powered Charging Bike: Amazon Six-Pager</h3>
+              <p class="report-meta">PDF · 47 pages · 3.4 MB</p>
+              <p>By Conner Schild, Aden Tran, Kit Nguyen, and Erik Balas. The file doesn't record who wrote which section.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/bike-dynamo-six-pager.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/bike-dynamo-six-pager.pdf" download>Download</a>
+            </div>
+          </li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- ============ Skills used ============ -->
+    <section class="section" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills used</h2>
+        <ul class="skills-used">
+          <li>Project leadership</li>
+          <li>Requirements definition</li>
+          <li>ANSYS static structural</li>
+          <li>Fusion 360 CAD</li>
+          <li>Design for 3D printing (FDM)</li>
+          <li>Electromechanical integration</li>
+          <li>ESP32 firmware (Arduino C++)</li>
+          <li>Power conditioning</li>
+          <li>Test planning and data analysis</li>
+          <li>Business case writing</li>
+        </ul>
+
+        <nav class="pager" aria-label="Projects">
+          <a href="pawr.html">← Pool Accessible Wheelchair Redesign</a>
+          <a href="claw-machine.html">Reimagined Candy Bowl →</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Kristopher Nguyen · Mechanical Engineer, EIT</p>
+      <nav aria-label="Contact">
+        <a href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
+        <a data-email-user="kit.n567" data-email-domain="gmail.com" hidden>Email</a>
+        <a href="../files/Kristopher-Nguyen-Resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

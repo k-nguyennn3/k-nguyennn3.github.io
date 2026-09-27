@@ -330,3 +330,53 @@ td.num { font-family: var(--font-mono); white-space: nowrap; }
   border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 22px; line-height: 1; cursor: pointer;
 }
 .lightbox-close:hover { background: rgba(255,255,255,.26); }
+
+/* ---------- Result status (text + color, never color alone) ---------- */
+.partial { color: #8a5a00; font-weight: 600; }
+.short { color: #a1332f; font-weight: 600; }
+
+/* ---------- Full report ---------- */
+.report-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.report-list > li {
+  margin: 0; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 8px; padding: 16px 18px; display: grid; gap: 12px;
+}
+@media (min-width: 720px) { .report-list > li { grid-template-columns: 1fr auto; align-items: center; } }
+.report-list h3 { font-size: 1.05rem; margin: 0 0 2px; }
+.report-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin: 0 0 6px; }
+.report-list p { margin: 0; font-size: 0.93rem; color: #333a43; }
+.report-list p + p { margin-top: 4px; }
+
+/* ---------- Video clip ---------- */
+.clip { margin: 24px 0; }
+.clip video { width: 100%; border-radius: 8px; border: 1px solid var(--line); background: #000; display: block; }
+
+/* ---------- Chart (series tokens validated with the dataviz palette checker) ---------- */
+.chart { --series-1: #2a78d6; --series-2: #eb6834; --grid: #e6e7e9; --text-2: #52514e;
+  position: relative; background: #fcfcfb; border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 6px; margin: 24px 0 8px; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart-title { font-weight: 600; font-size: 0.98rem; margin: 0 0 2px; }
+.chart-sub { font-size: 0.85rem; color: var(--text-2); margin: 0 0 8px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 6px; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-2); }
+.chart-legend li { margin: 0; display: inline-flex; align-items: center; gap: 6px; }
+.key-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--series-1); }
+.key-line { width: 18px; height: 2px; border-radius: 1px; background: var(--series-2); }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .axis-text { fill: var(--text-2); font-family: var(--font-mono); font-size: 11px; }
+.chart .axis-title { fill: var(--text-2); font-size: 12px; }
+.chart .ref-line { stroke: #9aa0a8; stroke-width: 1; }
+.chart .ref-text { fill: var(--text-2); font-size: 11px; }
+.chart .model { stroke: var(--series-2); stroke-width: 2; stroke-linecap: round; fill: none; }
+.chart .pt .dot { fill: var(--series-1); stroke: #fcfcfb; stroke-width: 2; }
+.chart .pt .hit { fill: transparent; }
+.chart .pt:hover .dot, .chart .pt:focus .dot { r: 6.5; }
+.chart .pt:focus { outline: none; }
+.chart .pt:focus-visible .dot { stroke: var(--ink); }
+.chart-tip {
+  position: absolute; pointer-events: none; transform: translate(-50%, calc(-100% - 12px));
+  background: var(--ink); color: #fff; font-size: 0.8rem; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap;
+}
+.chart-tip[hidden] { display: none; }
+details.data-table { margin: 0 0 24px; font-size: 0.9rem; }
+details.data-table summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+details.data-table .table-wrap { margin-top: 10px; }

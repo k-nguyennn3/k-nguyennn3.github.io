@@ -89,8 +89,36 @@ function initLightbox() {
   });
 }
 
+// ---- Chart tooltips --------------------------------------------------------
+// Any element with data-tip inside a .chart shows a tooltip on hover or focus.
+function initChartTips() {
+  document.querySelectorAll(".chart").forEach((chart) => {
+    const tip = document.createElement("div");
+    tip.className = "chart-tip";
+    tip.hidden = true;
+    tip.setAttribute("role", "status");
+    chart.append(tip);
+    const show = (el) => {
+      const box = chart.getBoundingClientRect();
+      const r = el.getBoundingClientRect();
+      tip.textContent = el.dataset.tip;
+      tip.style.left = `${r.left + r.width / 2 - box.left}px`;
+      tip.style.top = `${r.top - box.top}px`;
+      tip.hidden = false;
+    };
+    const hide = () => { tip.hidden = true; };
+    chart.querySelectorAll("[data-tip]").forEach((el) => {
+      el.addEventListener("pointerenter", () => show(el));
+      el.addEventListener("pointerleave", hide);
+      el.addEventListener("focus", () => show(el));
+      el.addEventListener("blur", hide);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initEmailLinks();
   initVideoSlots();
   initLightbox();
+  initChartTips();
 });
