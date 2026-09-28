@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
   <title>Pool Accessible Wheelchair Redesign | Kristopher Nguyen</title>
   <meta name="description" content="Capstone case study: a reproducible PVC aquatic-therapy wheelchair that sinks in 25 seconds, resists tipping, and keeps hardware away from patients. Kit Nguyen owned the brake and wheel subsystems.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -19,10 +20,14 @@
     <div class="wrap">
       <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
       <nav class="site-nav" aria-label="Main">
-        <a class="nav-link" href="../index.html#timeline">Timeline</a>
-        <a class="nav-link" href="../index.html#projects">Projects</a>
-        <a class="nav-link" href="../index.html#biomechanics">Biomechanics</a>
-        <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="../index.html#timeline">Timeline</a>
+          <a class="nav-link" href="../index.html#projects">Projects</a>
+          <a class="nav-link" href="../index.html#more-work">More work</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        </div>
         <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
       </nav>
     </div>
@@ -244,7 +249,7 @@
           <li>
             <div>
               <h3>Final Design Report</h3>
-              <p class="report-meta">PDF · 68 pages · 3.0 MB</p>
+              <p class="report-meta">PDF · 70 pages · 3.3 MB</p>
               <p>By Christopher Tran, Hoang (Long) Dinh, Katie Leija, Kit Nguyen, and Shannon Kwong. The file doesn't record who wrote which section; as Document Lead, I managed the team's documentation.</p>
             </div>
             <div class="btn-row">

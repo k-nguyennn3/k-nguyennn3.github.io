@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
   <title>Reimagined Candy Bowl: Mini Claw Machine | Kristopher Nguyen</title>
   <meta name="description" content="Project case study: a desk-sized claw machine with a 2-axis gantry and a syringe-hydraulic claw, built for $127 in parts. Kit Nguyen designed and built the gantry.">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -19,10 +20,14 @@
     <div class="wrap">
       <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
       <nav class="site-nav" aria-label="Main">
-        <a class="nav-link" href="../index.html#timeline">Timeline</a>
-        <a class="nav-link" href="../index.html#projects">Projects</a>
-        <a class="nav-link" href="../index.html#biomechanics">Biomechanics</a>
-        <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="../index.html#timeline">Timeline</a>
+          <a class="nav-link" href="../index.html#projects">Projects</a>
+          <a class="nav-link" href="../index.html#more-work">More work</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        </div>
         <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
       </nav>
     </div>
@@ -231,7 +236,7 @@
 
         <nav class="pager" aria-label="Projects">
           <a href="bike-dynamo.html">← Human Powered Bike Dynamo</a>
-          <span class="pending">Next: Husky Robotics (in progress)</span>
+          <a href="husky-robotics.html">Husky Robotics →</a>
         </nav>
       </div>
     </section>

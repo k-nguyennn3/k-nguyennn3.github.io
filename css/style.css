@@ -85,11 +85,51 @@ li + li { margin-top: 0.35em; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
 .brand { font-weight: 600; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .brand span { font-family: var(--font-mono); font-weight: 400; color: var(--muted); font-size: 0.85em; margin-left: 6px; }
-.site-nav { display: flex; align-items: center; gap: 20px; }
+.site-nav { display: flex; align-items: center; gap: 12px; }
 .site-nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
 .site-nav a:hover { color: var(--accent); }
-.site-nav .nav-link { display: none; }
-@media (min-width: 820px) { .site-nav .nav-link { display: inline; } }
+.site-nav .btn, .site-nav .btn:hover { color: #fff; }
+.nav-links { display: flex; align-items: center; gap: 20px; }
+
+/* Phone menu (below 820px). With JavaScript, the links sit in a dropdown
+   panel opened by the Menu button; without it, they wrap onto a second row. */
+.nav-toggle { display: none; }
+@media (max-width: 819.98px) {
+  html:not(.js) .site-header { position: static; }
+  html:not(.js) .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; padding-bottom: 10px; row-gap: 6px; }
+  html:not(.js) .site-nav { flex-wrap: wrap; }
+  html:not(.js) .nav-links { flex-wrap: wrap; gap: 4px 16px; order: 2; width: 100%; }
+
+  .js .nav-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--surface); color: var(--ink);
+    font: 500 0.875rem/1.2 var(--font-sans); cursor: pointer;
+  }
+  .js .nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle-icon, .nav-toggle-icon::before, .nav-toggle-icon::after {
+    display: block; width: 14px; height: 1.5px; background: currentColor; border-radius: 1px;
+  }
+  .nav-toggle-icon { position: relative; }
+  .nav-toggle-icon::before, .nav-toggle-icon::after { content: ""; position: absolute; left: 0; }
+  .nav-toggle-icon::before { top: -4.5px; }
+  .nav-toggle-icon::after { top: 4.5px; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon { background: transparent; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after { top: 0; transform: rotate(-45deg); }
+
+  .js .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 4px var(--gutter) 12px;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(22, 25, 29, 0.08);
+  }
+  .js .nav-links.is-open { display: flex; }
+  .js .nav-links a { padding: 12px 0; font-size: 1rem; border-top: 1px solid var(--line); }
+  .js .nav-links a:first-child { border-top: 0; }
+}
 
 /* ---------- Buttons and chips ---------- */
 
@@ -349,7 +389,7 @@ td.num { font-family: var(--font-mono); white-space: nowrap; }
 
 /* ---------- Video clip ---------- */
 .clip { margin: 24px 0; }
-.clip video { width: 100%; border-radius: 8px; border: 1px solid var(--line); background: #000; display: block; }
+.clip video { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); background: #000; display: block; }
 
 /* ---------- Chart (series tokens validated with the dataviz palette checker) ---------- */
 .chart { --series-1: #2a78d6; --series-2: #eb6834; --grid: #e6e7e9; --text-2: #52514e;
@@ -380,3 +420,20 @@ td.num { font-family: var(--font-mono); white-space: nowrap; }
 details.data-table { margin: 0 0 24px; font-size: 0.9rem; }
 details.data-table summary { cursor: pointer; color: var(--accent); font-weight: 500; }
 details.data-table .table-wrap { margin-top: 10px; }
+
+/* ---------- EIT credential line (intro, directly under the name) ---------- */
+.credential-line { margin: -4px 0 16px; font-size: 1.12rem; font-weight: 500; color: var(--muted); letter-spacing: 0.01em; }
+
+/* ---------- Card with a square video (e.g., Stirling engine) ---------- */
+.card-media--square { aspect-ratio: 1 / 1; background: #000; }
+.card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-credit { font-size: 0.8rem; color: var(--muted); margin: 0 0 10px; }
+
+/* ---------- Leadership card with photo (ABSA) ---------- */
+.lead-cards { display: grid; gap: 16px; margin: 24px 0 0; }
+@media (min-width: 720px) { .lead-cards { grid-template-columns: repeat(2, 1fr); } }
+.lead-cards .card-media { aspect-ratio: 4 / 3; }
+.lead-cards h3 { font-size: 1.05rem; margin-bottom: 2px; }
+
+/* A short text card beside a taller card keeps its own height. */
+.card--compact { align-self: start; }

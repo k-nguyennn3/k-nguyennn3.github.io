@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
   <title>Kristopher Nguyen | Mechanical Engineer, EIT</title>
   <meta name="description" content="Portfolio of Kristopher (Kit) Nguyen, EIT: mechanical engineer (University of Washington, 2026) working across design, FEA, and fabrication, with a particular interest in biomechanical and medical devices.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -19,10 +20,14 @@
     <div class="wrap">
       <a class="brand" href="index.html">Kit Nguyen<span>EIT</span></a>
       <nav class="site-nav" aria-label="Main">
-        <a class="nav-link" href="#timeline">Timeline</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#biomechanics">Biomechanics</a>
-        <a class="nav-link" href="#leadership">Leadership</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="#timeline">Timeline</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#more-work">More work</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#leadership">Leadership</a>
+        </div>
         <a class="btn btn--small" href="files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
       </nav>
     </div>
@@ -34,9 +39,10 @@
     <section class="intro" aria-labelledby="intro-title">
       <div class="wrap">
         <div>
-          <p class="eyebrow">Mechanical Engineer · EIT</p>
+          <p class="eyebrow">Mechanical Engineer</p>
           <h1 id="intro-title">Kristopher (Kit) Nguyen</h1>
-          <p class="pitch">I design, analyze, and build mechanical hardware, taking parts from CAD and FEA through machining, assembly, and test. Recent work includes an accessible pool wheelchair for aquatic therapy, a bike-mounted energy harvester, and FEA of heart-tissue micro-posts for a cell biomechanics lab. I'm open to roles across mechanical engineering and especially drawn to biomechanical and medical devices.</p>
+          <p class="credential-line">EIT · Passed FE Mechanical Exam (2026)</p>
+          <p class="pitch">I design, analyze, and build mechanical hardware, taking parts from CAD and FEA through machining, assembly, and test. Recent work spans an accessible pool wheelchair, a bike-mounted energy harvester, a hydraulic claw machine, and structural FEA studies. I'm open to roles across mechanical engineering, with a particular interest in biomechanics.</p>
           <div class="btn-row">
             <a class="btn" href="files/Kristopher-Nguyen-Resume.pdf">Download résumé (PDF)</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
@@ -44,7 +50,6 @@
           </div>
           <ul class="credentials">
             <li>B.S. Mechanical Engineering, University of Washington, 2026</li>
-            <li>EIT · passed FE Mechanical</li>
             <li>Certified SOLIDWORKS Associate</li>
             <li>Seattle, WA</li>
           </ul>
@@ -75,12 +80,12 @@
           </li>
           <li>
             <span class="tl-date">Mar – Jun 2026</span>
-            <p class="tl-title"><a href="#eht-post">Structural FEA studies</a> <span class="tl-org">· ME 478</span><span class="tl-kind">Project</span></p>
-            <p class="tl-note">ANSYS models of a heart-tissue micro-post for a cell biomechanics lab, an aluminum rigging plate, and a playground truss.</p>
+            <p class="tl-title"><a href="projects/fea-studies.html">Structural FEA studies</a> <span class="tl-org">· ME 478</span><span class="tl-kind">Project</span></p>
+            <p class="tl-note">ANSYS analyses of a heart-tissue micro-post for a cell biomechanics lab, an aluminum rigging plate, and a playground truss.</p>
           </li>
           <li>
             <span class="tl-date">Mar 2026</span>
-            <p class="tl-title"><a href="#cryo">Cryopreservation research review</a> <span class="tl-org">· ME 498</span><span class="tl-kind">Research</span></p>
+            <p class="tl-title"><a href="projects/cryopreservation.html">Cryopreservation research review</a> <span class="tl-org">· ME 498</span><span class="tl-kind">Research</span></p>
             <p class="tl-note">Compared vitrification and slow freezing for sperm, oocytes, and embryos.</p>
           </li>
           <li>
@@ -104,8 +109,13 @@
             <p class="tl-note">Ran supercritical-CO₂ reactor experiments synthesizing MOF-808 sorbents for PFAS removal, and prepared samples for analysis.</p>
           </li>
           <li>
+            <span class="tl-date">Winter 2025</span>
+            <p class="tl-title"><a href="projects/stirling-engine.html">Stirling engine hub assembly</a> <span class="tl-org">· ME 355</span><span class="tl-kind">Project</span></p>
+            <p class="tl-note">Group A: machined the fan hub, hub axle, and crank upright on the lathe and mill, and 3D-printed the hub inserts.</p>
+          </li>
+          <li>
             <span class="tl-date">Dec 2023 – Aug 2025</span>
-            <p class="tl-title"><a href="#husky">Spectrometer Engineer</a> <span class="tl-org">· Husky Robotics</span><span class="tl-kind">Student team</span></p>
+            <p class="tl-title"><a href="projects/husky-robotics.html">Spectrometer Engineer</a> <span class="tl-org">· Husky Robotics</span><span class="tl-kind">Student team</span></p>
             <p class="tl-note">Designed the rover's spectrometer instrument package, including a servo-driven soil-tamping mechanism.</p>
           </li>
           <li>
@@ -184,46 +194,6 @@
       </div>
     </section>
 
-    <!-- ============ Biomechanics ============ -->
-    <section class="section" id="biomechanics" aria-labelledby="bio-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="bio-title">Biomechanics</h2>
-          <p>The <a href="projects/pawr.html">pool wheelchair</a> was designed around patients' bodies. These two projects work at the tissue and cell scale.</p>
-        </div>
-        <div class="card-grid card-grid--2">
-
-          <article class="card" id="eht-post">
-            <div class="card-media card-media--contain">
-              <img src="images/thumbs/eht-post.jpg" width="730" height="484" loading="lazy" alt="ANSYS total-deformation contour of a silicone micro-post on its base, with the color legend">
-            </div>
-            <div class="card-body">
-              <ul class="tags"><li class="tag--bio">Biomechanics</li><li>ANSYS</li><li>ME 478</li></ul>
-              <h3>Engineered Heart Tissue Micro-Post FEA</h3>
-              <p class="card-role">Individual · for a cell biomechanics lab · 2026</p>
-              <p>The lab measures heart-tissue contraction from how far flexible PDMS posts bend. I modeled a proposed hollow post, ran a 12-mesh study (linear and quadratic tetrahedra, hexahedra) against Euler–Bernoulli beam theory, then extracted post stiffness with and without its base.</p>
-              <ul class="metrics">
-                <li><strong>1.82%</strong>error vs. beam theory</li>
-                <li><strong>0.869 N/m</strong>post stiffness</li>
-                <li><strong>0.785 N/m</strong>with base (−10%)</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card card--text" id="cryo">
-            <div class="card-body">
-              <ul class="tags"><li class="tag--bio">Biomedical</li><li>Literature review</li><li>ME 498</li></ul>
-              <h3>Cryopreservation of Sperm, Oocytes &amp; Embryos</h3>
-              <p class="card-role">4-person team · 2026</p>
-              <p>A ~16,000-word review comparing vitrification and slow freezing across three reproductive cell types: cryoprotectant chemistry, cooling and warming rates, cryodamage mechanisms, and clinical outcomes. We presented it as a 56-slide talk.</p>
-              <p>Why cell size matters: small, streamlined sperm tolerate osmotic swings well, while large, water-rich oocytes and multicellular embryos need ice-free vitrification. The reviewed studies report roughly 90–95% survival for vitrified oocytes versus about 60% after slow freezing.</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ============ More work ============ -->
     <section class="section" id="more-work" aria-labelledby="more-title">
       <div class="wrap">
@@ -241,25 +211,55 @@
             </div>
             <div class="card-body">
               <ul class="tags"><li>Robotics</li><li>SolidWorks · Onshape</li><li>Thermal</li></ul>
-              <h3>Husky Robotics: Rover Spectrometer</h3>
+              <h3><a href="projects/husky-robotics.html">Husky Robotics: Rover Spectrometer</a></h3>
               <p class="card-role">Spectrometer Engineer · 2023–2025</p>
-              <p>Designed the spectrometer package for the team's Mars-rover soil analysis: component mounts, a servo-driven rack-and-pinion tamper that compacts samples for cleaner readings, and heat sinks and thermoelectric coolers that hold the sensor below 80 °F. Integrated it with five sub-teams inside a shared 16 × 16 × 24 in instrument envelope.</p>
+              <p>Spectrometer instrument package for the team's Mars rover: a 3-actuator electromechanical mechanism, a soil-tamping mechanism, and thermal control that holds the sensor below 80 °F.</p>
+              <p class="card-foot"><a class="btn btn--small" href="projects/husky-robotics.html">View project</a></p>
             </div>
           </article>
 
-          <article class="card" id="fea-studies">
-            <div class="card-media card-media--contain">
-              <img src="images/thumbs/fea-studies.jpg" width="844" height="561" loading="lazy" alt="ANSYS von Mises stress contour on half of an aluminum rigging plate, peak at the edge of a load hole">
-            </div>
+          <article class="card card--link" id="fea-studies">
+            <a class="card-media card-media--contain" href="projects/fea-studies.html" tabindex="-1" aria-hidden="true">
+              <img src="images/thumbs/fea-studies.jpg" width="844" height="561" loading="lazy" alt="">
+            </a>
             <div class="card-body">
               <ul class="tags"><li>ANSYS</li><li>Mesh convergence</li><li>ME 478</li></ul>
-              <h3>Structural FEA Studies</h3>
+              <h3><a href="projects/fea-studies.html">Structural FEA Studies</a></h3>
               <p class="card-role">Individual · 2026</p>
-              <p><strong>Rigging plate</strong> (aluminum, 3 × 12 kN): global and local mesh-convergence studies over three orders of magnitude; 237 MPa peak von Mises stress against 500 MPa yield, a safety factor of 2.1.</p>
-              <p><strong>Playground truss</strong> (5 kN): four rod-size and support cases; worst-case safety factor 46 in stress and 8.16 in buckling.</p>
+              <p>Three validated ANSYS analyses: a heart-tissue micro-post for a cell biomechanics lab, an aluminum rigging plate, and a playground climbing truss.</p>
+              <ul class="metrics">
+                <li><strong>1.82%</strong>model error vs. beam theory</li>
+                <li><strong>FoS 2.1</strong>rigging plate at 3 × 12 kN</li>
+              </ul>
+              <p class="card-foot"><a class="btn btn--small" href="projects/fea-studies.html">View project</a></p>
             </div>
           </article>
 
+          <article class="card card--text" id="cryo">
+            <div class="card-body">
+              <ul class="tags"><li class="tag--bio">Biomedical</li><li>Literature review</li><li>ME 498</li></ul>
+              <h3><a href="projects/cryopreservation.html">Cryopreservation of Sperm, Oocytes &amp; Embryos</a></h3>
+              <p class="card-role">4-person team · 2026</p>
+              <p>A 76-page review for Artificial Organs comparing vitrification and slow freezing across three reproductive cell types: cryoprotectant chemistry, cooling and warming rates, cryodamage, and clinical outcomes.</p>
+              <p class="card-foot"><a class="btn btn--small" href="projects/cryopreservation.html">View project</a></p>
+            </div>
+          </article>
+
+          <article class="card" id="stirling">
+            <div class="card-media card-media--square">
+              <video controls muted loop playsinline preload="none" poster="videos/stirling-engine.jpg" width="540" height="540" aria-label="Stirling engine running, its fan spinning">
+                <source src="videos/stirling-engine.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-body">
+              <ul class="tags"><li>Machining</li><li>Lathe · Mill</li><li>ME 355</li></ul>
+              <h3><a href="projects/stirling-engine.html">Stirling Engine: Hub Assembly</a></h3>
+              <p class="card-role">Group A · 2025</p>
+              <p>A class-built Stirling engine. My group made the fan hub, hub axle, hub inserts, and crank upright, with bearing bores reamed to +0.001/−0 in.</p>
+              <p class="card-credit">Video: Hoang (Long) Dinh, used with permission.</p>
+              <p class="card-foot"><a class="btn btn--small" href="projects/stirling-engine.html">View project</a></p>
+            </div>
+          </article>
 
           <article class="card card--text" id="rocketry">
             <div class="card-body">
@@ -279,13 +279,6 @@
             </div>
           </article>
 
-          <article class="card card--text card--placeholder" id="stirling">
-            <div class="card-body">
-              <ul class="tags"><li>Machining</li></ul>
-              <h3>Stirling Engine</h3>
-              <p class="card-foot"><span class="pending">Photos and details coming soon</span></p>
-            </div>
-          </article>
 
         </div>
       </div>
@@ -357,18 +350,27 @@
           </div>
         </article>
 
-        <ul class="lead-list">
-          <li>
-            <h3>Asian Business Student Association</h3>
-            <p class="card-role">Event &amp; Public Relations Director · May 2023 – Jan 2025</p>
-            <p>Coordinated 20+ industry speakers (Microsoft, Accenture, EY), co-hosted events with 10+ companies, helped grow membership 25%, and gave 1-on-1 résumé and interview mentoring.</p>
-          </li>
-          <li>
-            <h3>Science Olympiad</h3>
-            <p class="card-role">Event Supervisor · 2019 – present</p>
-            <p>Wrote 10+ tests for state and invitational tournaments and volunteered 50+ hours running events and mentoring younger students in STEM.</p>
-          </li>
-        </ul>
+        <div class="lead-cards">
+          <article class="card" id="absa">
+            <a class="card-media zoom" href="images/absa/absa-team.jpg">
+              <img src="images/absa/absa-team.jpg" width="1080" height="809" loading="lazy" alt="Asian Business Student Association officer team outdoors on the UW campus">
+            </a>
+            <div class="card-body">
+              <p class="eyebrow">Asian Business Student Association</p>
+              <h3>Event Director &amp; Public Relations Director</h3>
+              <p class="card-role">2023–2025</p>
+              <p>Coordinated 20+ industry speakers from Microsoft, Accenture, and EY and co-hosted events with 10+ companies. Helped grow membership 25%, promoted events to a 50,000+ social-media reach, and gave 1-on-1 résumé and interview mentoring.</p>
+            </div>
+          </article>
+          <article class="card card--text card--compact">
+            <div class="card-body">
+              <p class="eyebrow">Science Olympiad</p>
+              <h3>Event Supervisor</h3>
+              <p class="card-role">2019 – present</p>
+              <p>Wrote 10+ tests for state and invitational tournaments and volunteered 50+ hours running events and mentoring younger students in STEM.</p>
+            </div>
+          </article>
+        </div>
         <p class="also">Also: UNVSA Most Outstanding Performance (2024). Earlier work: marketing manager and server at Ichi Teriyaki (2021–2023), where my promotion lifted a new menu item's sales by 200%+; food service at Mochinut.</p>
       </div>
     </section>

@@ -60,6 +60,28 @@ function initVideoSlots() {
   });
 }
 
+// ---- Phone menu ------------------------------------------------------------
+// Below 820px the nav links live in a dropdown opened by the Menu button.
+// It closes on a link tap, Esc, a tap outside, or when the window widens.
+function initNavMenu() {
+  const toggle = document.querySelector(".nav-toggle");
+  const panel = toggle && document.getElementById(toggle.getAttribute("aria-controls"));
+  if (!panel) return;
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    panel.classList.toggle("is-open", open);
+  };
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  panel.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("is-open")) { setOpen(false); toggle.focus(); }
+  });
+  document.addEventListener("click", (e) => {
+    if (panel.classList.contains("is-open") && !panel.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
+  });
+  matchMedia("(min-width: 820px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
+}
+
 // ---- Lightbox --------------------------------------------------------------
 // Any <a class="zoom" href="large.jpg"><img alt="..."></a> opens full size.
 function initLightbox() {
@@ -118,6 +140,7 @@ function initChartTips() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initEmailLinks();
+  initNavMenu();
   initVideoSlots();
   initLightbox();
   initChartTips();

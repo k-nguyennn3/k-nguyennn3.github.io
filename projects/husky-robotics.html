@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
+  <title>Husky Robotics: Rover Spectrometer | Kristopher Nguyen</title>
+  <meta name="description" content="Kit Nguyen's work as Spectrometer Engineer on Husky Robotics, UW's student Mars-rover team: electromechanical mechanisms, packaging, and thermal control for in-field soil analysis.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="../index.html#timeline">Timeline</a>
+          <a class="nav-link" href="../index.html#projects">Projects</a>
+          <a class="nav-link" href="../index.html#more-work">More work</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        </div>
+        <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap"><p class="crumb"><a href="../index.html#more-work">← More work</a></p></div>
+
+    <!-- ============ Hero ============ -->
+    <section class="proj-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <ul class="tags"><li>Robotics</li><li>Electromechanical</li><li>Thermal</li></ul>
+          <h1 id="page-title">Husky Robotics: Rover Spectrometer</h1>
+          <p class="lede">The spectrometer instrument package for UW's student Mars-rover team: mechanisms, packaging, and thermal control for analyzing soil samples in the field.</p>
+          <dl class="spec">
+            <div><dt>My role</dt><dd>Spectrometer Engineer</dd></div>
+            <div><dt>Team</dt><dd>Husky Robotics, UW's student rover team (instrumentation sub-team)</dd></div>
+            <div><dt>Dates</dt><dd>Dec 2023 – Aug 2025</dd></div>
+            <div><dt>Tools</dt><dd>SolidWorks, Onshape, 3D printing, machining, wire harnessing</dd></div>
+          </dl>
+        </div>
+        <a class="proj-hero-img zoom" href="../images/husky-robotics/instrument-box.jpg">
+          <img src="../images/husky-robotics/instrument-box.jpg" width="812" height="890" alt="CAD render of the rover instrument box with sample carousel and actuators" style="object-fit: contain; background: #fff;">
+        </a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="key-numbers" aria-label="Key results">
+        <li><strong>3</strong>actuators in the mechanism I designed and built</li>
+        <li><strong>20%</strong>less assembly rework over 8 builds</li>
+        <li><strong>&lt; 80 °F</strong>sensor temperature held for accurate spectra</li>
+        <li><strong>16 × 16 × 24 in</strong>shared envelope for all instruments</li>
+      </ul>
+    </div>
+
+    <!-- ============ Problem ============ -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="problem-title">The problem</h2>
+        <p>The rover's instrumentation looks for signs of past biological activity in soil samples, and the spectrometer searches for kerogen as one of those indicators. Spectral readings are sensitive to heat, stray light, and vibration, and loosely packed soil scatters light unpredictably. Everything also had to share a 16 × 16 × 24 in envelope with the drill and chemical tests. The spectrometer box alone is 4 × 16 in.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ My role ============ -->
+    <section class="section" aria-labelledby="role-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="role-title">My role</h2>
+        <ul>
+          <li>Designed and built a <strong>3-actuator electromechanical mechanism</strong>, owning the full cycle from concept to field deployment.</li>
+          <li>Created a <strong>tamping mechanism</strong> that compresses each soil sample before measurement, eliminating random scattering for a more precise reading.</li>
+          <li>Developed and tested <strong>thermal management</strong> (heat sinks and thermoelectric coolers) to keep the sensor below 80 °F, avoiding temperature-related shifts in the spectra.</li>
+          <li>Integrated the assembly by routing wire harnesses and connectors within a compact chassis enclosure, then bench tested it.</li>
+          <li>Worked the spectrometer into the full instrumentation CAD with five other sub-teams, iterating designs on both sides until everything fit, while cutting the subsystem's weight.</li>
+          <li>Machined and 3D-printed prototypes, applying DFM/DFA with shop machinists to <strong>cut assembly rework by 20% over 8 builds</strong>.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- ============ Design ============ -->
+    <section class="section" aria-labelledby="design-title">
+      <div class="wrap">
+        <h2 id="design-title">Design</h2>
+        <div class="fig-row fig-row--3">
+          <figure>
+            <a class="zoom" href="../images/husky-robotics/instrument-box.jpg"><img src="../images/husky-robotics/instrument-box.jpg" width="812" height="890" loading="lazy" alt="CAD render of the instrument box with sample carousel and actuators"></a>
+            <figcaption>Instrument box with the sample carousel and actuators.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/husky-robotics/spectrometer-optics.jpg"><img src="../images/husky-robotics/spectrometer-optics.jpg" width="795" height="1047" loading="lazy" alt="CAD render of the spectrometer optics assembly inside its enclosure"></a>
+            <figcaption>Spectrometer optics assembly in its enclosure.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/husky-robotics/tamping-mechanism.jpg"><img src="../images/husky-robotics/tamping-mechanism.jpg" width="1200" height="874" loading="lazy" alt="CAD render of the servo-driven rack-and-pinion soil-tamping mechanism"></a>
+            <figcaption>Servo-driven rack-and-pinion tamper that compacts each sample.</figcaption>
+          </figure>
+        </div>
+        <p class="prose" style="color: var(--muted); font-size: 0.92rem;">CAD renders. There is no written report for this project.</p>
+      </div>
+    </section>
+
+    <!-- ============ Skills used ============ -->
+    <section class="section" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills used</h2>
+        <ul class="skills-used">
+          <li>Electromechanical design</li>
+          <li>SolidWorks and Onshape CAD</li>
+          <li>Thermal management</li>
+          <li>Packaging and integration</li>
+          <li>Wire harness routing</li>
+          <li>DFM/DFA</li>
+          <li>Machining and 3D printing</li>
+          <li>Cross-team coordination</li>
+        </ul>
+
+        <nav class="pager" aria-label="Projects">
+          <a href="claw-machine.html">← Reimagined Candy Bowl</a>
+          <a href="fea-studies.html">Structural FEA Studies →</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Kristopher Nguyen · Mechanical Engineer, EIT</p>
+      <nav aria-label="Contact">
+        <a href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
+        <a data-email-user="kit.n567" data-email-domain="gmail.com" hidden>Email</a>
+        <a href="../files/Kristopher-Nguyen-Resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
+  <title>Structural FEA Studies | Kristopher Nguyen</title>
+  <meta name="description" content="Three ANSYS analyses by Kit Nguyen: a heart-tissue micro-post for a cell biomechanics lab validated against beam theory, an aluminum rigging plate with mesh-convergence studies, and a playground climbing truss.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Kit Nguyen<span>EIT</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="../index.html#timeline">Timeline</a>
+          <a class="nav-link" href="../index.html#projects">Projects</a>
+          <a class="nav-link" href="../index.html#more-work">More work</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#leadership">Leadership</a>
+        </div>
+        <a class="btn btn--small" href="../files/Kristopher-Nguyen-Resume.pdf">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap"><p class="crumb"><a href="../index.html#more-work">← More work</a></p></div>
+
+    <!-- ============ Hero ============ -->
+    <section class="proj-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <ul class="tags"><li>ANSYS</li><li>Mesh convergence</li><li>Model validation</li><li>ME 478</li></ul>
+          <h1 id="page-title">Structural FEA Studies</h1>
+          <p class="lede">Three ANSYS analyses, each written up as an engineering memo: a heart-tissue micro-post for a cell biomechanics lab, an aluminum rigging plate, and a playground climbing structure. The common thread is proving the model before trusting the answer.</p>
+          <dl class="spec">
+            <div><dt>My role</dt><dd>Individual: modeling, analysis, and each memo</dd></div>
+            <div><dt>Course</dt><dd>UW ME 478, Finite Element Analysis</dd></div>
+            <div><dt>Dates</dt><dd>Mar – Jun 2026</dd></div>
+            <div><dt>Tools</dt><dd>ANSYS Mechanical 2024 R2 and DesignModeler, Excel</dd></div>
+          </dl>
+        </div>
+        <a class="proj-hero-img zoom" href="../images/fea/rigging-plate-von-mises.jpg">
+          <img src="../images/fea/rigging-plate-von-mises.jpg" width="1360" height="561" alt="ANSYS von Mises stress contour on half of an aluminum rigging plate, with the peak at the edge of a load hole" style="object-fit: contain; background: #fff;">
+        </a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="key-numbers" aria-label="Key results">
+        <li><strong>1.82%</strong>micro-post model error vs. beam theory</li>
+        <li><strong>0.869 N/m</strong>micro-post stiffness extracted</li>
+        <li><strong>2.1</strong>rigging-plate factor of safety at 3 × 12 kN</li>
+        <li><strong>8.16</strong>worst-case truss factor of safety in buckling</li>
+      </ul>
+    </div>
+
+    <!-- ============ Overview ============ -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="problem-title">The problem</h2>
+        <p>Each study asked a practical question (is this structure safe, or how stiff is this part?), and each answer is only as good as the model behind it. So every analysis included a check: a mesh-convergence study, a comparison of element types, or a comparison against hand calculations.</p>
+        <h2 id="role-title">My role</h2>
+        <p>Individual work. For each study I built the geometry, set materials, loads, and boundary conditions, ran the convergence or validation study, and wrote the memo with its recommendations.</p>
+      </div></div>
+    </section>
+
+    <!-- ============ Study 1: heart-tissue post ============ -->
+    <section class="section" aria-labelledby="eht-title">
+      <div class="wrap">
+        <div class="prose">
+          <p class="eyebrow">Study 1 · Biomechanics</p>
+          <h2 id="eht-title">Silicone micro-post for engineered heart tissue</h2>
+          <p>A cell biomechanics lab measures how hard engineered heart tissue contracts by watching flexible silicone (PDMS) posts bend. The lab was considering a new hollow post, and the analysis had to predict its stiffness. PDMS is soft and nearly incompressible (E = 2.5 MPa, ν = 0.499).</p>
+          <p><strong>Validation first.</strong> Under a 0.2 mN side load on the cap, Euler–Bernoulli beam theory predicts 238.7 µm of tip deflection. I ran 12 meshes, three element types at four sizes each, and compared every one to that value:</p>
+        </div>
+        <div class="table-wrap prose">
+          <table>
+            <thead><tr><th scope="col">Element size</th><th scope="col">Linear tet (Tet4)</th><th scope="col">Quadratic tet (Tet10)</th><th scope="col">Quadratic hex (Hex20)</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1 mm</td><td class="num">52.3 µm (78% low)</td><td class="num"><span class="pass">243.0 µm (1.8%)</span></td><td class="num">229.9 µm (3.7%)</td></tr>
+              <tr><td class="num">0.5 mm</td><td class="num">59.9 µm (75%)</td><td class="num">231.2 µm (3.1%)</td><td class="num">230.8 µm (3.3%)</td></tr>
+              <tr><td class="num">0.1 mm</td><td class="num">151.2 µm (37%)</td><td class="num">232.4 µm (2.6%)</td><td class="num">232.8 µm (2.5%)</td></tr>
+              <tr><td class="num">0.05 mm</td><td class="num">170.9 µm (28%)</td><td class="num">232.9 µm (2.4%)</td><td class="num">233.1 µm (2.4%)*</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p style="font-size: 0.85rem; color: var(--muted);">*The 0.05 mm hex mesh failed; this value is at 0.052 mm.</p>
+          <p>Linear tetrahedra were far too stiff even at 190,000 elements, while quadratic tets and hexes all landed within 2–4% of theory. The best case was quadratic tets at 1 mm (643 elements, 1.82% error). Theory itself treats the cap as part of a uniform hollow tube, so a few percent of disagreement is expected.</p>
+          <p><strong>Stiffness.</strong> Sweeping the load from 0 to 0.4 mN gave a linear response with a stiffness of <strong>0.869 N/m</strong> for the post alone. Modeling the post on its base dropped it to <strong>0.785 N/m</strong> (−10%), because the base also deflects and that rotation carries up the whole shaft. That's a correction the beam equation can't capture, and it matters when converting post deflection into tissue force.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/fea/eht-post-force-deflection.png"><img src="../images/fea/eht-post-force-deflection.png" width="1360" height="781" loading="lazy" alt="Plot of force versus maximum horizontal deflection for the micro-post, linear fit with slope 0.869 N/m"></a>
+            <figcaption>Force vs. tip deflection: slope 0.869 N/m.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/fea/eht-post-deformation-base.jpg"><img src="../images/fea/eht-post-deformation-base.jpg" width="1326" height="484" loading="lazy" alt="ANSYS total deformation of the micro-post on its base"></a>
+            <figcaption>Post on its base: the base's own deflection lowers the effective stiffness.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Study 2: rigging plate ============ -->
+    <section class="section" aria-labelledby="plate-title">
+      <div class="wrap">
+        <div class="prose">
+          <p class="eyebrow">Study 2</p>
+          <h2 id="plate-title">Aluminum rigging plate</h2>
+          <p>A rigging plate for lifting and rescue carries three 12 kN loads through its lower rings, applied as 38.2 MPa of pressure on the ring edges, with the top hole fixed. I modeled it as a 1 cm plate in 2D and used its symmetry to halve the model (aluminum: E = 72 GPa, ν = 0.33, yield 500 MPa).</p>
+          <p><strong>Convergence.</strong> Peak stress sits at a stress concentration, so I refined the mesh two ways. Globally, from 2 cm to 0.02 cm elements (15 to 53,574 elements), and locally with a 1 cm sphere of influence at the hot spot (457 to 31,063 elements). Both approached about 250 MPa. The local mesh got there with a fraction of the elements and run time, so a 0.02 cm local size (5,659 elements) was the efficient choice.</p>
+        </div>
+        <div class="fig-row fig-row--3">
+          <figure>
+            <a class="zoom" href="../images/fea/rigging-plate-loads.png"><img src="../images/fea/rigging-plate-loads.png" width="850" height="726" loading="lazy" alt="Rigging plate with the fixed support at the top hole and three 12 kN loads at the lower holes"></a>
+            <figcaption>Loads and fixed support.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/fea/rigging-plate-von-mises.jpg"><img src="../images/fea/rigging-plate-von-mises.jpg" width="1360" height="561" loading="lazy" alt="Von Mises stress on the half-model, peak at the edge of a load hole"></a>
+            <figcaption>Von Mises stress, 0.02 cm local mesh: 237 MPa peak.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/fea/rigging-plate-convergence.png"><img src="../images/fea/rigging-plate-convergence.png" width="1360" height="781" loading="lazy" alt="Plot of local maximum von Mises stress versus number of elements, leveling off near 2.5e9 dyne per square centimeter"></a>
+            <figcaption>Local-mesh convergence of peak stress.</figcaption>
+          </figure>
+        </div>
+        <div class="prose">
+          <p><strong>Result.</strong> Peak stress was 237 MPa at the edge of a load hole, a <strong>factor of safety of 2.1</strong> against yield. It kept creeping up with refinement, reaching 264 MPa at the finest local mesh. A single load at the center ring was the worse case at 331 MPa. The plate is safe as rated, and I recommended a thicker plate to add margin at the hole edges.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Study 3: playground truss ============ -->
+    <section class="section" aria-labelledby="truss-title">
+      <div class="wrap">
+        <div class="prose">
+          <p class="eyebrow">Study 3</p>
+          <h2 id="truss-title">Playground climbing structure</h2>
+          <p>A steel climbing dome at Seattle's Gas Works Park, modeled as a pin-jointed truss (11 nodes, 25 members) with a worst-case 5,000 N load at the top node. I compared 4 cm and 2 cm rods, with the base either staked down (fixed) or resting on the ground (free to slide), and checked each case for both stress and Euler buckling.</p>
+        </div>
+        <div class="fig-row fig-row--2">
+          <figure>
+            <a class="zoom" href="../images/fea/truss-diagram.png"><img src="../images/fea/truss-diagram.png" width="748" height="671" loading="lazy" alt="Line drawing of the dome-shaped climbing truss with a 5000 N load at the top"></a>
+            <figcaption>The structure and load case.</figcaption>
+          </figure>
+          <figure>
+            <a class="zoom" href="../images/fea/truss-deformation.jpg"><img src="../images/fea/truss-deformation.jpg" width="816" height="462" loading="lazy" alt="ANSYS total deformation of the truss, largest at the top node"></a>
+            <figcaption>Total deformation, largest at the loaded top node.</figcaption>
+          </figure>
+        </div>
+        <div class="table-wrap prose">
+          <table>
+            <thead><tr><th scope="col">Case</th><th scope="col">Max deflection</th><th scope="col">Max stress</th><th scope="col">FoS, stress</th><th scope="col">FoS, buckling</th></tr></thead>
+            <tbody>
+              <tr><td>4 cm rods, fixed base</td><td class="num">0.027 mm</td><td class="num">1.51 MPa</td><td class="num">185</td><td class="num">130</td></tr>
+              <tr><td>2 cm rods, fixed base</td><td class="num">0.108 mm</td><td class="num">6.05 MPa</td><td class="num">46</td><td class="num">8.16</td></tr>
+              <tr><td>4 cm rods, free base</td><td class="num">0.027 mm</td><td class="num">1.51 MPa</td><td class="num">186</td><td class="num">131</td></tr>
+              <tr><td>2 cm rods, free base</td><td class="num">0.109 mm</td><td class="num">6.01 MPa</td><td class="num">47</td><td class="num">8.20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p><strong>Result.</strong> Axial forces barely changed between cases, so stress scaled with rod area: halving the diameter roughly quadrupled the stress. The support condition hardly mattered. Buckling, not yield, governs, and even the thin rods keep a factor of safety above 8. I recommended the 4 cm rods for margin, plus further checks for loads that aren't straight down, such as a child swinging from the side.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Full report ============ -->
+    <section class="section" id="report" aria-labelledby="report-title">
+      <div class="wrap"><div class="prose">
+        <h2 id="report-title">Full reports</h2>
+        <ul class="report-list">
+          <li>
+            <div>
+              <h3>Analysis of Silicone Post for Engineered Heart Tissue</h3>
+              <p class="report-meta">PDF · 30 pages · 2.4 MB</p>
+              <p>By Kit Nguyen.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/fea-heart-tissue-post.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/fea-heart-tissue-post.pdf" download>Download</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Analysis of Rigging Plate</h3>
+              <p class="report-meta">PDF · 28 pages · 1.8 MB</p>
+              <p>By Kit Nguyen.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/fea-rigging-plate.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/fea-rigging-plate.pdf" download>Download</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Analysis of Climbing Structure</h3>
+              <p class="report-meta">PDF · 14 pages · 1.0 MB</p>
+              <p>By Kit Nguyen.</p>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn--small" href="../files/reports/fea-playground-truss.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/fea-playground-truss.pdf" download>Download</a>
+            </div>
+          </li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- ============ Skills used ============ -->
+    <section class="section" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills used</h2>
+        <ul class="skills-used">
+          <li>ANSYS Mechanical and DesignModeler</li>
+          <li>Global and local mesh refinement</li>
+          <li>Element-type selection</li>
+          <li>Validation against beam theory</li>
+          <li>Euler buckling checks</li>
+          <li>Symmetry and 2D simplification</li>
+          <li>Soft-material (PDMS) modeling</li>
+          <li>Technical memo writing</li>
+        </ul>
+
+        <nav class="pager" aria-label="Projects">
+          <a href="husky-robotics.html">← Husky Robotics</a>
+          <a href="cryopreservation.html">Cryopreservation Review →</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Kristopher Nguyen · Mechanical Engineer, EIT</p>
+      <nav aria-label="Contact">
+        <a href="https://www.linkedin.com/in/kit-nguyen/" rel="noopener">LinkedIn</a>
+        <a data-email-user="kit.n567" data-email-domain="gmail.com" hidden>Email</a>
+        <a href="../files/Kristopher-Nguyen-Resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
