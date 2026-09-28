@@ -82,7 +82,7 @@
           <p class="eyebrow">Study 1 · Biomechanics</p>
           <h2 id="eht-title">Silicone micro-post for engineered heart tissue</h2>
           <p>A cell biomechanics lab measures how hard engineered heart tissue contracts by watching flexible silicone (PDMS) posts bend. The lab was considering a new hollow post, and the analysis had to predict its stiffness. PDMS is soft and nearly incompressible (E = 2.5 MPa, ν = 0.499).</p>
-          <p><strong>Validation first.</strong> Under a 0.2 mN side load on the cap, Euler–Bernoulli beam theory predicts 238.7 µm of tip deflection. I ran 12 meshes, three element types at four sizes each, and compared every one to that value:</p>
+          <p><strong>Validation first.</strong> Under a 0.2 mN side load on the cap, I ran 12 meshes, three element types at four sizes each, and compared each tip deflection with the Euler–Bernoulli beam-theory value (percent error in parentheses):</p>
         </div>
         <div class="table-wrap prose">
           <table>
@@ -97,8 +97,8 @@
         </div>
         <div class="prose">
           <p style="font-size: 0.85rem; color: var(--muted);">*The 0.05 mm hex mesh failed; this value is at 0.052 mm.</p>
-          <p>Linear tetrahedra were far too stiff even at 190,000 elements, while quadratic tets and hexes all landed within 2–4% of theory. The best case was quadratic tets at 1 mm (643 elements, 1.82% error). Theory itself treats the cap as part of a uniform hollow tube, so a few percent of disagreement is expected.</p>
-          <p><strong>Stiffness.</strong> Sweeping the load from 0 to 0.4 mN gave a linear response with a stiffness of <strong>0.869 N/m</strong> for the post alone. Modeling the post on its base dropped it to <strong>0.785 N/m</strong> (−10%), because the base also deflects and that rotation carries up the whole shaft. That's a correction the beam equation can't capture, and it matters when converting post deflection into tissue force.</p>
+          <p>Linear tetrahedra were far too stiff even at 193,429 elements, while quadratic tets and hexes all landed within 1.8–3.7% of theory. The best case was quadratic tets at 1 mm (643 elements, 1.82% error). Theory itself treats the cap as part of a uniform hollow tube, so a few percent of disagreement is expected.</p>
+          <p><strong>Stiffness.</strong> Sweeping the load from 0 to 0.4 mN gave a linear response with a stiffness of <strong>0.869 N/m</strong> for the post alone. Modeling the post on its base dropped it to <strong>0.785 N/m</strong> (−10%, my calculation from those two values), because the base also deflects and that rotation carries up the whole shaft. That's a correction the beam equation can't capture, and it matters when converting post deflection into tissue force.</p>
         </div>
         <div class="fig-row fig-row--2">
           <figure>
@@ -165,9 +165,9 @@
             <thead><tr><th scope="col">Case</th><th scope="col">Max deflection</th><th scope="col">Max stress</th><th scope="col">FoS, stress</th><th scope="col">FoS, buckling</th></tr></thead>
             <tbody>
               <tr><td>4 cm rods, fixed base</td><td class="num">0.027 mm</td><td class="num">1.51 MPa</td><td class="num">185</td><td class="num">130</td></tr>
-              <tr><td>2 cm rods, fixed base</td><td class="num">0.108 mm</td><td class="num">6.05 MPa</td><td class="num">46</td><td class="num">8.16</td></tr>
+              <tr><td>2 cm rods, fixed base</td><td class="num">0.108 mm</td><td class="num">6.05 MPa</td><td class="num">46.3</td><td class="num">8.16</td></tr>
               <tr><td>4 cm rods, free base</td><td class="num">0.027 mm</td><td class="num">1.51 MPa</td><td class="num">186</td><td class="num">131</td></tr>
-              <tr><td>2 cm rods, free base</td><td class="num">0.109 mm</td><td class="num">6.01 MPa</td><td class="num">47</td><td class="num">8.20</td></tr>
+              <tr><td>2 cm rods, free base</td><td class="num">0.109 mm</td><td class="num">6.01 MPa</td><td class="num">46.6</td><td class="num">8.20</td></tr>
             </tbody>
           </table>
         </div>

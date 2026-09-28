@@ -133,7 +133,8 @@
         <div class="prose">
           <p>Two findings shaped the design. Tipping risk only appears when the user's weight shifts rearward, and it grows sharply above a 60° push angle, so the therapist guidance is to push low, at 0–30°. And ballast barely helps with tipping: going from zero to five ballasts cut the worst-case push force by only 11.35 lbf while raising the dry weight toward 72.6 lb. That freed us to size ballast for sinking speed alone, and pool testing settled on <strong>two 2.5 lb steel ballasts</strong> over the casters.</p>
 
-          <p><strong>Frame FEA.</strong> Removing the front crossbar for comfort let the seat frame cave inward, so the team compared the original frame with five support concepts in ANSYS static structural at 200, 300, and 350 lb. A mesh study refined quadratic tetrahedra from 0.5 in to 0.1 in (81,000 to 897,000 elements). Going from 0.2 in to 0.1 in changed deflection by only 1.4%, so 0.2 in elements balanced accuracy and run time.</p>
+          <p><strong>Frame FEA.</strong> Removing the front crossbar for comfort let the seat frame cave inward, so the team compared the original frame with five support concepts in ANSYS static structural at 200, 300, and 350 lb. A mesh study refined quadratic tetrahedra from 0.5 in to 0.1 in (81,363 to 896,624 elements). Going from 0.2 in to 0.1 in changed deflection by only 1.4%, so 0.2 in elements balanced accuracy and run time.</p>
+          <p class="source-note">Element counts and deflections on this page come from the team's FEA results spreadsheet; the 1.4% and 54% figures are my calculations from its values. The final report shows these results only as ANSYS plots.</p>
         </div>
         <div class="fig-row fig-row--2">
           <figure>
@@ -142,11 +143,11 @@
           </figure>
           <figure>
             <a class="zoom" href="../images/pawr/fea-config-e-200lb.jpg"><img src="../images/pawr/fea-config-e-200lb.jpg" width="1400" height="573" loading="lazy" alt="ANSYS total deformation of frame configuration E under 200 lb"></a>
-            <figcaption>Configuration E, 200 lb: 0.96 in, 54% less than the original.</figcaption>
+            <figcaption>Configuration E, 200 lb: 0.96 in, 54% less than the original (calculated from the spreadsheet's 2.10 and 0.96 in).</figcaption>
           </figure>
         </div>
         <div class="prose">
-          <p>We chose <strong>configuration E</strong>: a criss-cross support of 1 in pipe joined with sling tees under the seat. Configuration D was slightly stiffer (0.85 in), but E's smaller pipes stay clear of users' thighs as the mesh sags. At 350 lb, E deflects 1.68 in, inside the 2 in limit. Its safety factor against PVC ultimate strength is 1.81 at 200 lb, 1.21 at 300 lb, and <strong>1.04 at 350 lb</strong>. That last figure is for the whole frame, separate from the brake components' 2.0, and the team's FEA review flagged 350 lb as a critical case, recommending 300 lb or less for routine use.</p>
+          <p>We chose <strong>configuration E</strong>: a criss-cross support of 1 in pipe joined with sling tees under the seat. Configuration D was slightly stiffer (0.85 in), but E's smaller pipes stay clear of users' thighs as the mesh sags. At 350 lb, E deflects 1.68 in, inside the 2 in limit. Its safety factor against PVC ultimate strength is 1.81 at 200 lb, 1.21 at 300 lb, and <strong>1.04 at 350 lb</strong> (from the team's FEA results document; the poster also lists 1.04). That last figure is for the whole frame, separate from the brake components' 2.0, and the team's FEA review flagged 350 lb as a critical case, recommending 300 lb or less for routine use.</p>
         </div>
         <figure class="prose">
           <a class="zoom" href="../images/pawr/fea-config-e-350lb.jpg"><img src="../images/pawr/fea-config-e-350lb.jpg" width="1400" height="573" loading="lazy" alt="ANSYS total deformation of frame configuration E under 350 lb, maximum 1.68 inches"></a>
@@ -222,6 +223,7 @@
             </tbody>
           </table>
         </div>
+        <p class="source-note">Neither row is in the final report. The frame values are from the team's FEA results document; the brake value is from my own ANSYS analysis of the brake parts.</p>
         <p><strong>Next steps we recommended:</strong> a stainless-steel ballast or one built into the caster connector, a carbon-fiber brake mount, rubber-cushioned handles, and a footrest.</p>
       </div></div>
     </section>
@@ -232,7 +234,7 @@
         <h2 id="gallery-title">Gallery</h2>
         <div class="gallery">
           <a class="zoom" href="../images/pawr/team-expo.jpg"><img src="../images/pawr/team-expo.jpg" width="1400" height="1050" loading="lazy" alt="The capstone team with Wave Therapies staff and the finished wheelchair at the UW capstone expo"></a>
-          <a class="zoom" href="../images/pawr/poster.jpg"><img src="../images/pawr/poster.jpg" width="1800" height="1350" loading="lazy" alt="Capstone expo poster: Pool Accessible Wheelchair Redesign"></a>
+          <a class="zoom" href="../images/pawr/poster.jpg"><img src="../images/pawr/poster.jpg" width="1800" height="1350" loading="lazy" alt="The printed poster on display at the capstone expo"></a>
           <a class="zoom" href="../images/pawr/cad-full.jpg"><img src="../images/pawr/cad-full.jpg" width="717" height="737" loading="lazy" alt="Full CAD model of the final wheelchair design"></a>
           <a class="zoom" href="../images/pawr/cad-mesh.jpg"><img src="../images/pawr/cad-mesh.jpg" width="1090" height="762" loading="lazy" alt="CAD of the mesh seat and backrest bolted to the sides of the frame"></a>
           <a class="zoom" href="../images/pawr/cad-frame-changes.jpg"><img src="../images/pawr/cad-frame-changes.jpg" width="842" height="756" loading="lazy" alt="CAD highlighting the frame changes: armrests and criss-cross seat support"></a>
@@ -260,14 +262,19 @@
           <li>
             <div>
               <h3>Capstone expo poster</h3>
-              <p class="report-meta">Photo · JPG</p>
-              <p>Presented at the UW Mechanical Engineering capstone expo, June 2026.</p>
+              <p class="report-meta">PDF · 1 page (36 × 24 in) · 2.1 MB</p>
+              <p>By Hoang Dinh, Shannon Kwong, Katie Leija, Kit Nguyen, and Christopher Tran. Presented at the UW Mechanical Engineering capstone expo, June 2026.</p>
             </div>
             <div class="btn-row">
-              <a class="btn btn--small zoom" href="../images/pawr/poster.jpg">View poster</a>
+              <a class="btn btn--small" href="../files/reports/pawr-capstone-poster.pdf" target="_blank" rel="noopener">View PDF</a>
+              <a class="btn btn--small btn--ghost" href="../files/reports/pawr-capstone-poster.pdf" download>Download</a>
             </div>
           </li>
         </ul>
+        <figure class="poster-fig">
+          <a class="zoom" href="../images/pawr/poster-final.jpg"><img src="../images/thumbs/pawr-poster.jpg" width="900" height="600" loading="lazy" alt="Capstone poster: Pool Accessible Wheelchair Redesign, with background, requirements, design and development, testing, final design with FEA plots, improvements, and future work"></a>
+          <figcaption>The capstone poster. Select it to view full size.</figcaption>
+        </figure>
       </div></div>
     </section>
 

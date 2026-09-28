@@ -58,11 +58,12 @@
 
     <div class="wrap">
       <ul class="key-numbers" aria-label="Key results">
-        <li><strong>5.65 W</strong>at 10.4 mph, 2.3× the 2.5 W goal</li>
+        <li><strong>5.65 W</strong>at 10.4 mph (goal: 2.5 W at 10 mph)</li>
         <li><strong>7.55 W</strong>peak measured, at 14.7 mph</li>
         <li><strong>0.98 kg</strong>total mass (limit 1 kg)</li>
         <li><strong>17.9%</strong>of a 10,000 mAh pack per 2 h ride at 10 mph</li>
       </ul>
+      <p class="source-note">The two power figures are measured ride data from the team's testing spreadsheet; the mass and charge estimate are from the six-pager.</p>
     </div>
 
     <!-- ============ Problem ============ -->
@@ -143,12 +144,12 @@
 
         <div class="prose">
           <h3>5. Testing</h3>
-          <p>We measured output on flat ground across ten rides at different speeds, logging speed from a phone fitness app. Power scaled linearly with speed, as the model predicted, and passed the 2.5 W goal from about 5 mph up.</p>
+          <p>We measured output on flat ground across ten rides at different speeds, logging speed from a phone fitness app. Power scaled linearly with speed, as the model predicted, and every ride at 5.32 mph or faster beat the 2.5 W goal.</p>
         </div>
 
         <figure class="chart prose" aria-labelledby="bike-chart-title">
           <p class="chart-title" id="bike-chart-title">Power output vs. bike speed</p>
-          <p class="chart-sub" id="bike-chart-sub">10 measured rides at 0.5 A charging current, with the model's prediction</p>
+          <p class="chart-sub" id="bike-chart-sub">10 measured rides at 0.5 A charging current, with the model's prediction. Data: the team's testing spreadsheet; model: six-pager Figure A1.</p>
           <ul class="chart-legend">
             <li><span class="key-dot"></span>Measured</li>
             <li><span class="key-line"></span>Predicted: 0.5 A × (2.22 V per m/s × speed)</li>
@@ -232,6 +233,7 @@
             </tbody>
           </table>
         </div>
+        <p class="source-note">The power result is from the team's testing spreadsheet; the other results are from the six-pager.</p>
         <p>The report also includes a business case in Amazon's six-page format: a $50 build cost and an $80 price, a 100-week production and cash-flow model, and sustainability, service, and delivery plans.</p>
         <p><strong>What we'd change next:</strong> add a heat sink for the buck converter, which ran warm on long rides; use the ESP32's deep-sleep mode to cut idle draw; switch to a grippier, longer-lasting roller material; and simplify the dashboard around the metrics riders actually want, like miles ridden.</p>
       </div></div>

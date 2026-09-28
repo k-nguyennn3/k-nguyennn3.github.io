@@ -428,6 +428,10 @@ details.data-table .table-wrap { margin-top: 10px; }
 .card-media--square { aspect-ratio: 1 / 1; background: #000; }
 .card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .card-credit { font-size: 0.8rem; color: var(--muted); margin: 0 0 10px; }
+.source-note { font-size: 0.875rem; color: var(--muted); }
+.poster-fig { margin: 24px 0 0; }
+.poster-fig img { width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+.key-numbers + .source-note { margin: 10px 0 0; }
 
 /* ---------- Leadership card with photo (ABSA) ---------- */
 .lead-cards { display: grid; gap: 16px; margin: 24px 0 0; }
